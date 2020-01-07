@@ -11,14 +11,12 @@ export default {
         path: '/',
         getData: () => ({
           images
-        }),
-        children: images.map(image => ({
-          path: `/post/${image.id}`,
-          template: 'src/containers/Post',
-          getData: () => ({
-            image,
-          }),
-        })),
+        })
+      },
+      {
+        path: '/about',
+        template: 'src/pages/about.js'
+        
       },
       {
         path: '/blog',

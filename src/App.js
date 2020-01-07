@@ -1,7 +1,7 @@
 import React from 'react'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 //
-import { Link, Router } from 'components/Router'
+import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import styled, { createGlobalStyle } from 'styled-components'
 // import './app.css'
@@ -10,21 +10,32 @@ import styled, { createGlobalStyle } from 'styled-components'
 addPrefetchExcludes(['dynamic'])
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Oswald:300,700&display=swap" rel="stylesheet');
   * {
     scroll-behavior: smooth;
   }
-  body {
-    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
-    Helvetica, Arial, 'Lucida Grande', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
+  html {
+    font-size: 62.5%;
+  
+    body {
+      font-family: 'Oswald', 'Helvetica Neue Light', 'Helvetica Neue',
+      Helvetica, Arial, 'Lucida Grande', sans-serif;
+      font-weight: 300;
+      line-height: 1.5rem;
+      letter-spacing: .1rem;
+      // font-size: 16px;
+      margin: 0;
+      padding: 0;
+      color: black;
+      h1 {
+        font-weight: bold !important;
+      }
+    }
   }
+  
   a {
     text-decoration: none;
-    color: #108db8;
-    font-weight: bold;
+    color: white;
   }
 
   img {
@@ -32,19 +43,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Nav = styled.nav`
-  width: 100%;
-  background: #108db8;
-  & a {
-    color: white;
-    padding: 1rem;
-    display: inline-block;
-  }
-`
-
-const Content = styled.div`
- 
-`
 
 function App() {
   return (
@@ -56,14 +54,14 @@ function App() {
         <Link to="/blog">Blog</Link>
         <Link to="/dynamic">Dynamic</Link>
       </Nav> */}
-      <Content className="content">
+      <div className="content">
         <React.Suspense fallback={<em>Loading...</em>}>
           <Router>
             <Dynamic path="dynamic" />
             <Routes path="*" />
           </Router>
         </React.Suspense>
-      </Content>
+      </div>
     </Root>
   )
 }
