@@ -1,3 +1,2 @@
-# React-Static - Basic Template
+# React-Static
 
-To use this template, run `react-static create` and use the `basic` template.
