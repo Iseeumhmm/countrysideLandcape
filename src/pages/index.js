@@ -16,12 +16,11 @@ const Carousel = styled.div`
   width: 100%;
   height: 100%;
 `
-const Slide = styled.div`
+const Slide = styled.img`
   display: block;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center center;
+  object-fit: cover;
 `
 
 export default function Home() {
@@ -37,10 +36,17 @@ export default function Home() {
         <div className="carousel-inner h-100">
           {images.map((post, index) => {
             var carouselItem = !i ? "active" : ""
+            const mobileImg = (post.backgroundImageMobile) ? `${post.backgroundImageMobile.fields.file.url}` : `${post.backgroundImage.fields.file.url} 2048w`
+            const sourceSet = (post.backgroundImageMobile) ? `${post.backgroundImageMobile.fields.file.url} 768w, ${post.backgroundImage.fields.file.url} 2048w` : `${post.backgroundImage.fields.file.url} 2048w`
+            console.log('post: ' + JSON.stringify(post.backgroundImage.fields.file.url))
             i = true;
             return (
                 <div key={ids.generate()} className={`carousel-item ${carouselItem} h-100`} data-interval="5000" >
-                <Slide style={{backgroundImage: `url(${post.backgroundImage.fields.file.url})`}}></Slide>
+                <Slide 
+                  srcSet={sourceSet}
+                  sizes="100vw"
+                  src={mobileImg} >
+                </Slide>
               </div>
             )}
           )}
