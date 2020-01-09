@@ -5,7 +5,7 @@
     animation-play-state: paused !important;
   }
   
-  .slick-slider {
+  .no-pointer {
     pointer-events: none;
   }
   .slick-active.zoom img {
@@ -24,3 +24,5 @@
     }
   }
   
+  #pools .slick-slide.slick-active {
+  }

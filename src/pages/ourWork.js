@@ -1,6 +1,7 @@
 import '../../node_modules/slick-carousel/slick/slick.css'
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
-import React, { Component } from "react";import styled from 'styled-components'
+import React, { useState, useEffect } from "react";
+import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import { Link } from 'components/Router'
 import Slider from "react-slick";
@@ -8,7 +9,7 @@ const logo = require('../images/logos/LargeLogo.png')
 
 // Styles
 const PageContainer = styled.div`
-  width: 85%;
+  width: 95%;
   height: 100%;
   margin: auto;
 `
@@ -26,99 +27,112 @@ const Logo = styled.div`
   background-size: cover;
   background-position: center center;
 `
-const TextContainer = styled.div`
-  padding: 8rem 0 0;
-  h1 {
-    text-align: center;
-  }
-  p {
-    padding-top: 2rem;
-  }
-  b {
-    font-weight: 700;
-  }
-  &:last-child {
-    padding-bottom: 8rem;
-  }
+const SmallSlide = styled.img`
+  filter: brightness(70%);
+  object-fit: cover;
 `
-export default class AsNavFor extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nav1: null,
-      nav2: null
-    };
+const LargeSlide = styled.img`
+  height: 40rem;
+  width: 100%;
+  object-fit: cover;
+`
+
+export default function AsNavFor() {
+
+  const [nav1, setNav1] = useState(null);
+  const [nav2, setNav2] = useState(null);
+  const [slider1, setSlider1] = useState(null);
+  const [slider2, setSlider2] = useState(null);
+  const [images, setImages] = useState({});
+  
+
+  useEffect(() => {
+    setNav1(slider1)
+    setNav2(slider2)
+    setImages({
+      image1 : "https://source.unsplash.com/random/300x300/?nature,water",
+      image2 : "https://source.unsplash.com/random/300x300/?nature,trees",
+      image3 : "https://source.unsplash.com/random/300x300/?nature,pond",
+      image4 : "https://source.unsplash.com/random/300x300/?nature,sky"
+    })
+    console.log('images: ', images.length)
+  }, [slider1, slider2])
+
+  const settingsSmall = {
+    arrows: false,
+    centerMode: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2
+        }
+      }
+    ]
+  }
+  const settingsLarge = {
+    arrows: false
   }
 
-  componentDidMount() {
-    this.setState({
-      nav1: this.slider1,
-      nav2: this.slider2
-    });
-  }
-
-  render() {
+ 
     return (
       <PageContainer>
       <HeaderContainer>
         <Link to="/"><Logo /></Link>
       </HeaderContainer>
-      <div>
-        <h2>Slider Syncing (AsNavFor)</h2>
-        <h4>First Slider</h4>
-        <Slider
-          asNavFor={this.state.nav2}
-          ref={slider => (this.slider1 = slider)}
-        >
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-        <h4>Second Slider</h4>
-        <Slider
-          asNavFor={this.state.nav1}
-          ref={slider => (this.slider2 = slider)}
+      <div id="pools">
+        <h1>Pools</h1>
+        <Slider {...settingsSmall}
+          asNavFor={nav1}
+          ref={slider => (setSlider2(slider))}
           slidesToShow={3}
           swipeToSlide={true}
           focusOnSelect={true}
         >
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
+          <SmallSlide 
+            src={images.image1}
+          />
+          <SmallSlide 
+            src="https://source.unsplash.com/random/300x300/?nature,trees"
+          />
+          <SmallSlide 
+            src="https://source.unsplash.com/random/300x300/?nature,pond"
+          />
+          <SmallSlide 
+            src="https://source.unsplash.com/random/300x300/?nature,sky"
+          />
         </Slider>
+        {/* Bottom Slider */}
+        <Slider {...settingsLarge}
+          asNavFor={nav2}
+          ref={slider => (setSlider1(slider))}
+        >
+          <LargeSlide 
+            src="https://source.unsplash.com/random/300x300/?nature,water"
+          />
+          <LargeSlide 
+            src="https://source.unsplash.com/random/300x300/?nature,trees"
+          />
+          <LargeSlide 
+            src="https://source.unsplash.com/random/300x300/?nature,pond"
+          />
+          <LargeSlide 
+            src="https://source.unsplash.com/random/300x300/?nature,sky"
+          />
+        </Slider>
+        
       </div>
       </PageContainer>
     );
-  }
 }
 
