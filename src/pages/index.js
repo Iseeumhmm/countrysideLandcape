@@ -24,6 +24,8 @@ const Slide = styled.img`
   min-height: 100vh;
   object-fit: cover;
 `
+
+// Takes in mutationObserver and checks all slides for changes
 const observeChecker = (nodes, observer) => {
   for (var i=0; i<nodes.length; i++) {
     observer.observe(
@@ -44,6 +46,7 @@ export default function Home() {
     }
     const mutationObserver = new MutationObserver(callback)
     observeChecker(slider, mutationObserver)
+    
     $( document ).ready(function() {
       document.body.classList.remove('js-loading');
       $('.slick-slider').addClass('no-pointer')

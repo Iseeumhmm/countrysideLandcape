@@ -5,7 +5,12 @@ import fetchPosts from './src/contentful/fetchPosts'
 export default {
   getRoutes: async () => {
     const images = await fetchPosts()
-
+    const workImages = [
+      "https://source.unsplash.com/random/300x300/?nature,water",
+      "https://source.unsplash.com/random/300x300/?nature,trees",
+      "https://source.unsplash.com/random/300x300/?nature,pond",
+      "https://source.unsplash.com/random/300x300/?nature,sky"
+    ]
     return [
       {
         path: '/',
@@ -20,8 +25,10 @@ export default {
       },
       {
         path: '/our-work',
-        template: 'src/pages/ourWork.js'
-        
+        template: 'src/pages/ourWork.js',
+        getData: () => ({
+          workImages
+        })
       },
       // {
       //   path: '/test',
