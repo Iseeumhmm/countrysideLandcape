@@ -3,7 +3,7 @@ import { Root, Routes, addPrefetchExcludes } from 'react-static'
 //
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 // import './app.css'
 
 // Any routes that start with 'dynamic' will be treated as non-static routes

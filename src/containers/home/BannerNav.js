@@ -25,7 +25,13 @@ export default function BannerNav() {
                 marginTop: "-.1rem", 
                 color: "#FDBB31",
                 fontWeight: "bold"
-                }}>OUR WORK</li>
+                }}>
+                <Link 
+                    to="/our-work"
+                    style={{color: "#FDBB31"}}
+                    >OUR WORK
+                </Link>
+            </li>
             <li>CONTACT</li>
         </NavList>
     )

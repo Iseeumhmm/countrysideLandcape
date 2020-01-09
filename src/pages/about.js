@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useRouteData } from 'react-static'
 import { Link } from 'components/Router'
 
 const logo = require('../images/logos/LargeLogo.png')
-var ids = require('short-id')
 
 // Styles
 const PageContainer = styled.div`
@@ -43,7 +41,6 @@ const TextContainer = styled.div`
 `
 
 export default function About() {
-  const { post } = useRouteData()
   return (
     <PageContainer>
       <HeaderContainer>

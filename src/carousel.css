@@ -1,0 +1,26 @@
+
+  .js-loading *,
+  .js-loading *:before,
+  .js-loading *:after {
+    animation-play-state: paused !important;
+  }
+  
+  .slick-slider {
+    pointer-events: none;
+  }
+  .slick-active.zoom img {
+      animation: fadeZoom 10000ms  300ms;
+  }
+  @keyframes fadeZoom {
+    0% { 
+      filter: brightness(7%); 
+      transform: scale(1.1);
+    }
+    5% { filter: brightness(85%); }
+    95% { filter: brightness(85%); }
+    100% { 
+      filter: brightness(7%);
+      transform: scale(1);
+    }
+  }
+  

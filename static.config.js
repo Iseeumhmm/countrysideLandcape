@@ -19,18 +19,28 @@ export default {
         
       },
       {
-        path: '/blog',
-        getData: () => ({
-          images
-        }),
-        children: images.map(image => ({
-          path: `/post/${image.id}`,
-          template: 'src/containers/Post',
-          getData: () => ({
-            image,
-          }),
-        })),
+        path: '/our-work',
+        template: 'src/pages/ourWork.js'
+        
       },
+      // {
+      //   path: '/test',
+      //   template: 'src/pages/index_test.js'
+        
+      // },
+      // {
+      //   path: '/blog',
+      //   getData: () => ({
+      //     images
+      //   }),
+      //   children: images.map(image => ({
+      //     path: `/post/${image.id}`,
+      //     template: 'src/containers/Post',
+      //     getData: () => ({
+      //       image,
+      //     }),
+      //   })),
+      // },
     ]
   },
   plugins: [

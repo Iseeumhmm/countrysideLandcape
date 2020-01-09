@@ -1,7 +1,0 @@
-
-  .carousel-item.zoom.active img {
-      transition: transform 5000ms linear 0s;
-      /* This should be based on your carousel setting. For bs, it should be 5second*/
-      transform: scale(1, 1);
-  }
- 
