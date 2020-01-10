@@ -5,10 +5,11 @@ var Link = require('../../components/Router').Link
 const NavList = styled.ul`
     margin-bottom: -4rem;
     padding: 0;
-    padding-top: 1.2rem;
+    padding-top: ${props => (props.secondary ? "0" : "1.2rem")};
     display: flex;
     justify-content: center;
     li {
+        a { color: ${props => (props.secondary ? "#FDBB31" : "white")}; }
         font-size: 1.3rem;
         list-style-type:none;
         display: inline-block;
@@ -16,9 +17,10 @@ const NavList = styled.ul`
     }
 `
 
-export default function BannerNav() {
+export default function BannerNav(props) {
+   
     return (
-        <NavList>
+        <NavList secondary={props.secondary}>
             <li><Link to="/about">ABOUT US</Link></li>
             <li style={{
                 fontSize: "1.7rem", 
@@ -32,7 +34,7 @@ export default function BannerNav() {
                     >OUR WORK
                 </Link>
             </li>
-            <li>CONTACT</li>
+            <li><Link to="/contact">CONTACT</Link></li>
         </NavList>
     )
 }

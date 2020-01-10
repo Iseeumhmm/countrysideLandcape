@@ -30,6 +30,10 @@ export default {
           workImages
         })
       },
+      {
+        path: '/contact',
+        template: 'src/pages/contact.js'
+      }
       // {
       //   path: '/test',
       //   template: 'src/pages/index_test.js'

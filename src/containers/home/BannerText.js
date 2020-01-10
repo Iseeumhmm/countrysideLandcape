@@ -5,12 +5,13 @@ import BannerNav from '../../containers/home/BannerNav'
 const logo = require('../../images/logos/LargeLogo.png')
 
 // styles
-const Container = styled.div`
+const TextContainer = styled.div`
     color: white;
     z-index: 2;
     width: 85%;
+
     position: absolute;
-    top: 50%;
+    top: ${props => props.secondary ? "0" : "50%"};
     left: 50%;
     transform: translate(-50%, -100%);
     display: flex;
@@ -34,14 +35,14 @@ const Logo = styled.div`
     background-position: center center;
 `
 
-export default function Banner() {
+export default function Banner(props) {
     return (
         <React.Fragment>
-            <Container>
+            <TextContainer>
                 <Logo />
                 <h1>It's your space</h1>
                 <BannerNav />
-            </Container>
+            </TextContainer>
         </React.Fragment>
     )
 }

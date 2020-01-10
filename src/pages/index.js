@@ -68,6 +68,7 @@ export default function Home() {
     slidesToScroll: 1,
     swipe: false,
     touchMove: false,
+    useTransforms: false
   }
   return (
     <Container>

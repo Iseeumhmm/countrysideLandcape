@@ -11,6 +11,7 @@ addPrefetchExcludes(['dynamic'])
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Oswald:300,700&display=swap" rel="stylesheet');
+  @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
   * {
     scroll-behavior: smooth;
   }

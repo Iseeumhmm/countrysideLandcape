@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import { Link } from 'components/Router'
-import Slider from "react-slick";
 import AsForNav from '../components/carousel/AsForNav'
 const logo = require('../images/logos/LargeLogo.png')
 
