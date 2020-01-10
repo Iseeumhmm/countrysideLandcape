@@ -13,13 +13,13 @@
   }
   @keyframes fadeZoom {
     0% { 
-      filter: brightness(7%); 
+      filter: brightness(7%) saturate(50%); 
       transform: scale(1.1);
     }
-    5% { filter: brightness(85%); }
-    95% { filter: brightness(85%); }
+    5% { filter: brightness(85%) saturate(50%); }
+    95% { filter: brightness(85%) saturate(50%); }
     100% { 
-      filter: brightness(7%);
+      filter: brightness(7%) saturate(50%);
       transform: scale(1);
     }
   }

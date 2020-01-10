@@ -46,7 +46,8 @@ export default function AsNavFor(props) {
                 slidesToScroll: 2
                 }
             }
-        ]
+        ],
+        useTransform: false
     }
     const settingsLarge = {
         arrows: false

@@ -18,7 +18,7 @@ const Container = styled.div`
 `
 
 const Slide = styled.img`
-  filter: brightness(7%); 
+  filter: brightness(7%) saturate(50%); 
   transform: scale(1.1);
   // width: 100%;
   min-height: 100vh;
@@ -46,7 +46,7 @@ export default function Home() {
     }
     const mutationObserver = new MutationObserver(callback)
     observeChecker(slider, mutationObserver)
-    
+
     $( document ).ready(function() {
       document.body.classList.remove('js-loading');
       $('.slick-slider').addClass('no-pointer')
@@ -67,7 +67,8 @@ export default function Home() {
     slidesToShow: 1,
     slidesToScroll: 1,
     swipe: false,
-    touchMove: false
+    touchMove: false,
+    useTransforms: false
   }
   return (
     <Container>

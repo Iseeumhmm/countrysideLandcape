@@ -17,12 +17,15 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    h2 {
+    h1 {
         width: 100%;
+        font-size: 3rem;
+        font-weight: 300 !important;
         text-align: center;
     }
 `
 const Logo = styled.div`
+    position: relative;
     margin: 0 auto 1rem;
     width: 13rem;
     min-height: 7rem;
@@ -36,7 +39,7 @@ export default function Banner() {
         <React.Fragment>
             <Container>
                 <Logo />
-                <h2>We bring your vision to life</h2>
+                <h1>It's your space</h1>
                 <BannerNav />
             </Container>
         </React.Fragment>

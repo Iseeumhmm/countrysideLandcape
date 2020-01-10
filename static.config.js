@@ -50,6 +50,7 @@ export default {
       // },
     ]
   },
+  siteRoot: 'https://mysite.com',
   plugins: [
     [
       require.resolve('react-static-plugin-source-filesystem'),
