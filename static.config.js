@@ -50,7 +50,7 @@ export default {
       // },
     ]
   },
-  siteRoot: 'https://mysite.com',
+  siteRoot: 'https://review.rickheffren.com',
   plugins: [
     [
       require.resolve('react-static-plugin-source-filesystem'),
