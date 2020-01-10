@@ -31,7 +31,7 @@ const Logo = styled.div`
 export default function AsNavFor() {
 
   // Get static assets from routes
-  const { imagesçToGet } = useRouteData()
+  const { imagesToGet } = useRouteData()
   const workImages = imagesToGet
 //   let workImages = imagesToGet ? imagesToGet : []
     return (
