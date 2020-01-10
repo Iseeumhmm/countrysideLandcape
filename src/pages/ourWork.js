@@ -1,6 +1,6 @@
 import '../../node_modules/slick-carousel/slick/slick.css'
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import { Link } from 'components/Router'
@@ -31,8 +31,9 @@ const Logo = styled.div`
 export default function AsNavFor() {
 
   // Get static assets from routes
-  const { workImages } = useRouteData()
-
+  const { imagesçToGet } = useRouteData()
+  const workImages = imagesToGet
+//   let workImages = imagesToGet ? imagesToGet : []
     return (
       <PageContainer>
         <HeaderContainer>

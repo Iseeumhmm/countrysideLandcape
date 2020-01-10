@@ -5,13 +5,15 @@ import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle } from 'styled-components'
 // import './app.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Oswald:300,700&display=swap" rel="stylesheet');
-  @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+  // @import url('https://fonts.googleapis.com/css?family=Oswald:300,700&display=swap" rel="stylesheet');
+  @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,700|Roboto:300&display=swap');
+
   * {
     scroll-behavior: smooth;
   }
@@ -19,7 +21,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62.5%;
   
     body {
-      font-family: 'Oswald', 'Helvetica Neue Light', 'Helvetica Neue',
+      // font-family: 'Oswald', 'Helvetica Neue Light', 'Helvetica Neue',
+      font-family: 'Alegreya Sans SC', sans-serif;,
+
       Helvetica, Arial, 'Lucida Grande', sans-serif;
       font-weight: 300;
       line-height: 1.5rem;
