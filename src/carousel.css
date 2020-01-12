@@ -4,7 +4,7 @@
   .js-loading *:after {
     animation-play-state: paused !important;
   }
-  
+
   .no-pointer {
     pointer-events: none;
   }

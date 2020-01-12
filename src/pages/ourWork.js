@@ -1,6 +1,6 @@
 import '../../node_modules/slick-carousel/slick/slick.css'
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import { Link } from 'components/Router'
@@ -37,14 +37,7 @@ export default function AsNavFor() {
 
   // Get static assets from routes
   const { contentfulImages } = useRouteData()
-//   let workImages = imagesToGet ? imagesToGet : []
 
-    useEffect(() => {
-        
-        // console.log('Contentful stuff from routes: ', workImages.pools[0].full1920x1280.fields.file.url)
-        // console.log('Contentful stuff from routes: ', workImages)
-        
-    }, [])
     let nav 
     if (contentfulImages) {
         nav = (

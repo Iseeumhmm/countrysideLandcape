@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
 import Slider from "react-slick";
+import { Link } from 'components/Router'
 const leftArrow = require('../../images/icons/left-arrow.svg')
 const rightArrow = require('../../images/icons/right-arrow.svg')
 var ids = require('short-id')
@@ -11,7 +12,8 @@ const SmallSlideContainer = styled.div`
   text-align: center;
 `
 const SmallSlide = styled.img`
- object-fit: cover;
+  height: 100%;
+  object-fit: cover;
   filter: brightness(70%);
  
 `
@@ -33,8 +35,8 @@ const Arrow = styled.img`
   transform: translateY(50%);
   left: ${props => props.left ? "1rem" : "unset"};
   right: ${props => props.right ? "1rem" : "unset"};
-
 `
+
 export default function AsNavFor(props) {
     // Set State Properties
     const [nav1, setNav1] = useState(null);
@@ -130,6 +132,7 @@ export default function AsNavFor(props) {
         >
           {urls.map( urls => {
               return (
+                <Link to={`/${urls.title}`}>
                 <LargeSlideContainer key={ids.generate()}>
                   <LargeSlide 
                     src={urls.url}
@@ -137,6 +140,7 @@ export default function AsNavFor(props) {
                   </ LargeSlide>
                   <h1>{urls.title}</h1>
                 </LargeSlideContainer>
+                </Link>
               )
             } 
           )}
