@@ -1,30 +1,15 @@
 import path from 'path'
-import axios from 'axios'
-import fetchPosts from './src/contentful/fetchPosts'
+// import axios from 'axios'
+import fetchHomePageImages from './src/contentful/fetchHomePageImages'
+import fetchWorkImages from './src/contentful/fetchWorkImages'
 
-const imagesToGet = [
-  "https://source.unsplash.com/random/300x300/?nature,water",
-  "https://source.unsplash.com/random/300x300/?nature,trees",
-  "https://source.unsplash.com/random/300x300/?nature,pond",
-  "https://source.unsplash.com/random/300x300/?nature,sky"
-]
-let requests = []
-let workImages = []
-imagesToGet.map( url => {
-  return (
-    requests.push(axios.get(url))
-  )
-})
+
 
 export default {
   getRoutes: async () => {
-    const images = await fetchPosts()
-    axios.all(requests).then(axios.spread((...responses) => {
-       workImages = responses
-      // use/access the results 
-    })).catch(errors => {
-      console.log('something went wrong downloading images from static.config.js... ', errors)
-    })
+    const images = await fetchHomePageImages()
+    const contentfulImages = await fetchWorkImages()
+
     return [
       {
         path: '/',
@@ -41,13 +26,13 @@ export default {
         path: '/our-work',
         template: 'src/pages/ourWork.js',
         getData: () => ({
-          imagesToGet
+          contentfulImages
         })
       },
-      {
-        path: '/contact',
-        template: 'src/pages/contact.js'
-      }
+      // {
+      //   path: '/contact',
+      //   template: 'src/pages/contact.js'
+      // }
       // {
       //   path: '/test',
       //   template: 'src/pages/index_test.js'
