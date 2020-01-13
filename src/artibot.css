@@ -1,11 +1,12 @@
-/* button.artibot-launcher--1dqxp.artibot-launcher-top-right--fH7j0 {
-    position: absolute !important;
+button.artibot-launcher--1dqxp.artibot-launcher-top-right--fH7j0, #artibot-wrapper--19YJW {
+    /* position: absolute !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    top: 30rem !important;
+    top: 30rem !important; */
+    display: none !important;
 }
 
 .artibot-wrapper--19YJW.artibot-launcher--1dqxp.artibot-launcher-top-right--fH7j0 {
-    top: 30rem !important;
+    display: none !important;
 
-} */
+}
