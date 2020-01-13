@@ -15,6 +15,7 @@ const Container = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
+  h1 { color: white; }
 `
 
 const Slide = styled.img`

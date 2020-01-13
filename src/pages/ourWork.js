@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import { Link } from 'components/Router'
 import AsForNav from '../components/carousel/AsForNav'
-const logo = require('../images/logos/LargeLogo.png')
+const logo = require('../images/logos/LargeLogoSlogan.png')
 
 // Styles
 const PageContainer = styled.div`
@@ -21,7 +21,9 @@ const HeaderContainer = styled.div`
   justify-content: center;
 `
 const Logo = styled.div`
-  width: 13rem;
+  position: relative;
+  right: 10px;
+  width: 23rem;
   min-height: 7rem;
   background-image: url(${logo});
   background-size: cover;
@@ -37,7 +39,6 @@ export default function AsNavFor() {
 
   // Get static assets from routes
   const { contentfulImages } = useRouteData()
-
     let nav 
     if (contentfulImages) {
         nav = (
@@ -52,7 +53,7 @@ export default function AsNavFor() {
         <HeaderContainer>
           <Link to="/"><Logo /></Link>
         </HeaderContainer>
-        <h1>Explore Our Work</h1>
+        <h1>What we do</h1>
         {nav}
         <TextContainer>
         <h1>Method</h1>

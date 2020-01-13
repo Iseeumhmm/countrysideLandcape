@@ -19,6 +19,7 @@ const TextContainer = styled.div`
     justify-content: center;
     text-align: center;
     h1 {
+        margin-bottom: 0;
         width: 100%;
         font-size: 3rem;
         font-weight: 300 !important;
@@ -28,7 +29,8 @@ const TextContainer = styled.div`
 const Logo = styled.div`
     position: relative;
     margin: 0 auto 1rem;
-    width: 13rem;
+    right: 1rem;
+    width: 23rem;
     min-height: 7rem;
     background-image: url(${logo});
     background-size: cover;

@@ -9,7 +9,13 @@ export default {
   getRoutes: async () => {
     const images = await fetchHomePageImages()
     const contentfulImages = await fetchWorkImages()
-
+    let page = (key) => {
+      let workImages = {
+        copy: `${key}`,
+        items: contentfulImages[key]
+      }
+      return {workImages}
+    }
     return [
       {
         path: '/',
@@ -29,15 +35,35 @@ export default {
           contentfulImages
         })
       },
-      // {
-      //   path: '/contact',
-      //   template: 'src/pages/contact.js'
-      // }
-      // {
-      //   path: '/test',
-      //   template: 'src/pages/index_test.js'
-        
-      // },
+      {
+        path: '/contact',
+        template: 'src/pages/contact.js'
+      },
+      {
+        path: '/pools',
+        template: 'src/pages/services.js',
+        getData: () => page("pools")
+      },
+      {
+        path: '/stonework',
+        template: 'src/pages/services.js',
+        getData: () => page("stonework")
+      },
+      {
+        path: '/retainingwalls',
+        template: 'src/pages/services.js',
+        getData: () => page("retainingwalls")
+      },
+      {
+        path: '/structures',
+        template: 'src/pages/services.js',
+        getData: () => page("structures")
+      },
+      {
+        path: '/woodworking',
+        template: 'src/pages/services.js',
+        getData: () => page("woodworking")
+      },
       // {
       //   path: '/blog',
       //   getData: () => ({

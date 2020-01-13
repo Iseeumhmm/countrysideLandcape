@@ -132,14 +132,14 @@ export default function AsNavFor(props) {
         >
           {urls.map( urls => {
               return (
-                <Link to={`/${urls.title}`}>
-                <LargeSlideContainer key={ids.generate()}>
-                  <LargeSlide 
-                    src={urls.url}
-                  >
-                  </ LargeSlide>
-                  <h1>{urls.title}</h1>
-                </LargeSlideContainer>
+                <Link  key={ids.generate()} to={`/${urls.title}`}>
+                  <LargeSlideContainer>
+                    <LargeSlide 
+                      src={urls.url}
+                    >
+                    </ LargeSlide>
+                    <h1>{urls.title}</h1>
+                  </LargeSlideContainer>
                 </Link>
               )
             } 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'components/Router'
 
-const logo = require('../images/logos/LargeLogo.png')
+const logo = require('../images/logos/LargeLogoSlogan.png')
 const vince = require('../images/Headshots/Vince.png')
 
 // Styles
@@ -19,7 +19,7 @@ const HeaderContainer = styled.div`
   justify-content: center;
 `
 const Logo = styled.div`
-  width: 13rem;
+  width: 23rem;
   min-height: 7rem;
   background-image: url(${logo});
   background-size: cover;

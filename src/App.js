@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
       color: black;
       h1 {
         font-weight: bold;
+        color: black;
       }
       p {
         font-family: 'Roboto', sans-serif;
