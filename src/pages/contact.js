@@ -72,7 +72,10 @@ const ContactButton = styled.button`
 
 const FooterTextContainer = styled.div`
   font-family: 'Roboto', sans-serif;
-  h2, a { color: #FFFFFFFF; }
+  h2, a { 
+    color: #FFFFFFFF; 
+    font-size: 2rem;
+  }
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -105,11 +108,11 @@ export default function Contact() {
                 <ContactForm />
             </FormContainer> */}
             <FooterTextContainer>
-              <h2>505 Talbot St. E., Aylmer, ON</h2>
+              <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E.<br/> Aylmer, ON</h2>
               <div style={{ 
-                  width: "65%", 
+                  width: "75%", 
                   margin: "auto",
-                  paddingBottom: "3rem" }}>
+                  paddingBottom: "2rem" }}>
                   <h2 style={{textAlign: "left"}}>JOHN<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
                   <h2 style={{textAlign: "left"}}>VINCE<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
               </div>
