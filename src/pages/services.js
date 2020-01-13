@@ -52,25 +52,27 @@ const Photo = styled.img`
 
 export default function About() {
   const { workImages } = useRouteData()
-  let service = workImages.copy
-  const individualItems = {
-    [service]: workImages.items
-  }
+    let service
+    let individualItems
     let nav 
-    if (workImages.items) {
+    if (workImages) {
+        service = workImages.copy
+        individualItems = {
+          [service]: workImages.items
+        }
         nav = (
             <AsForNav images={individualItems} />
         )
         
     } else {
-        console.log('no pools')
+        console.log('no items found')
     }
     return (
       <PageContainer>
         <HeaderContainer>
           <Link to="/"><Logo /></Link>
         </HeaderContainer>
-        <h1>{workImages.copy}</h1>
+        <h1>{workImages ? workImages.copy : null}</h1>
         {nav}
         <TextContainer>
         <h1>To Complete</h1>

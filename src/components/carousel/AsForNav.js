@@ -70,7 +70,7 @@ export default function AsNavFor(props) {
                 }
             }
         ],
-        useTransform: true
+        useTransform: false
     }
     const settingsLarge = {
         arrows: false

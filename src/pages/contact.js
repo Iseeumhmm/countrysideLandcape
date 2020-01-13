@@ -58,8 +58,16 @@ const Logo = styled.div`
 //   transform: translateX(-50%);
 // `
 
-const Button = styled.button`
-
+const ContactButton = styled.button`
+  background-color: #93D409;
+  border: none;
+  border-radius: 4px;
+  margin-top: 2rem;
+  box-shadow: 1px 1px 5px 2px rgba(0,0,0, .3);
+  font-size: 1.75rem;
+  z-index: 200;
+  width: 14rem;
+  height: 4rem;
 `
 
 const FooterTextContainer = styled.div`
@@ -70,7 +78,7 @@ const FooterTextContainer = styled.div`
   transform: translateX(-50%);
   width: 95%;
   text-align: center;
-  bottom: 1rem;
+  bottom: 6rem;
 `
 export default function Contact() {
 
@@ -78,8 +86,11 @@ export default function Contact() {
       const script = document.createElement("script");
       script.type = "text/javascript"
       script.async = true
+      script.id = "artibot";
+      script.setAttribute('crossorigin','SameSite=None')
       script.innerHTML = "!function(t,e){t.artibotApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};var a=!1,i=e.createElement('script');i.async=!0,i.type='text/javascript',i.src='https://app.artibot.ai/loader.js',e.getElementsByTagName('head').item(0).appendChild(i),i.onreadystatechange=i.onload=function(){if(!(a||this.readyState&&'loaded'!=this.readyState&&'complete'!=this.readyState)){new window.ArtiBot({i:'31743cbc-72f3-4c39-91de-9447c14185d7'});a=!0}}}(window,document);"
       document.body.appendChild(script)
+      // return () => script.parentNode.removeChild( script );
     }, [])
     return (
         <PageContainer>
@@ -88,7 +99,7 @@ export default function Contact() {
             <Link to="/"><Logo /></Link>
             <HeaderTextContainer>
                 <p>Let's make your vision a reality</p>
-                <Button />
+                <ContactButton className="artibot-button-expand">CONTACT</ContactButton>
             </HeaderTextContainer>
             {/* <FormContainer>
                 <ContactForm />
