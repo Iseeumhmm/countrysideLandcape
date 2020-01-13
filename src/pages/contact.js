@@ -41,9 +41,9 @@ const BannerOverlay = styled.div`
 `
 const Logo = styled.div`
   position: absolute;
-  left: 46%;
+  left: calc(50% - 1rem);
   transform: translateX(-50%);
-  margin:  1rem 0 0 1rem;
+  margin:  1rem 0 1rem;
   width: 23rem;
   min-height: 7rem;
   background-image: url(${logo});
@@ -79,9 +79,10 @@ const FooterTextContainer = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 95%;
+  width: 30rem;
   text-align: center;
   bottom: 6rem;
+  
 `
 export default function Contact() {
 

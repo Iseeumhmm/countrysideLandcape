@@ -12,6 +12,9 @@ const PageContainer = styled.div`
   width: 95%;
   height: 100%;
   margin: auto;
+  @media(min-width: 883px) {
+    width: 65%;
+  }
 `
 const HeaderContainer = styled.div`
   width: 100%;
