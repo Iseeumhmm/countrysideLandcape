@@ -72,8 +72,8 @@ export default function About() {
       slider = (
         <Slider {...settings}>
           {individualItems[workImages.copy].map((post) => {
-            const mobileImg = (post.small600x400) ? `${post.small600x400.fields.file.url}` : `${post.full1920x1280.fields.file.url} 2048w`
-            const sourceSet = (post.medium1200x800) ? `${post.medium1200x800.fields.file.url} 768w, ${post.full1920x1280.fields.file.url} 2048w` : `${post.backgroundImage.fields.file.url} 2048w`
+            const mobileImg = (post.full1920x1280) ? `${post.full1920x1280.fields.file.url} 768w, ${post.full1920x1280.fields.file.url} 2048w` : `${post.full1920x1280.fields.file.url} 2048w`
+            const sourceSet = (post.full1920x1280) ? `${post.full1920x1280.fields.file.url} 768w, ${post.full1920x1280.fields.file.url} 2048w` : `${post.full1920x1280.fields.file.url} 2048w`
             return (
               <React.Fragment key={ids.generate()}>
                 <Link to={`/${service}/single`}>
