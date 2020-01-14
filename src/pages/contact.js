@@ -66,7 +66,7 @@ const ContactButton = styled.button`
   box-shadow: 1px 1px 5px 2px rgba(0,0,0, .3);
   font-size: 1.75rem;
   z-index: 200;
-  width: 14rem;
+  width: 20rem;
   height: 4rem;
   @media( min-width: 582px ) {
     width: 20rem;

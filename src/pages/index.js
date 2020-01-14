@@ -5,7 +5,8 @@ import $ from 'jquery'
 import { useRouteData } from 'react-static'
 import Slider from "react-slick";
 import BannerText from '../containers/home/BannerText'
-
+import instagram from '../images/icons/instagram.png'
+import facebook from '../images/icons/facebook.png'
 
 import '../carousel.css'; 
 var ids = require('short-id')
@@ -24,6 +25,12 @@ const Slide = styled.img`
   // width: 100%;
   min-height: 100vh;
   object-fit: cover;
+`
+const SocialIcons = styled.div`
+position: absolute;
+text-align: center;
+bottom: 0;
+width: 100%;
 `
 
 // Takes in mutationObserver and checks all slides for changes
@@ -88,6 +95,10 @@ export default function Home() {
         )}
       </Slider>
       <BannerText />
+      <SocialIcons>
+        <img src={instagram} style={{ width: "4rem", margin: "1rem" }} alt="Instagram icon"/>
+        <img src={facebook} style={{ width: "4rem", margin: "1rem" }} alt="Facebook icon"/>
+      </ SocialIcons>
     </Container>
   )
 }
