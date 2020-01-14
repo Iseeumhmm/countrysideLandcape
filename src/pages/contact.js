@@ -60,6 +60,7 @@ const Logo = styled.div`
 
 const ContactButton = styled.button`
   background-color: #93D409;
+  color: white;
   border: none;
   border-radius: 4px;
   margin-top: 2rem;
