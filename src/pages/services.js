@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'components/Router'
 import { useRouteData } from 'react-static'
-import AsForNav from '../components/carousel/AsForNav'
+import Slider from "react-slick";
+import { Link } from 'components/Router'
+var ids = require('short-id')
 
 
 const logo = require('../images/logos/LargeLogoSlogan.png')
@@ -29,56 +30,124 @@ const Logo = styled.div`
   background-size: cover;
   background-position: center center;
 `
-const TextContainer = styled.div`
-  padding: 8rem 0 0;
-  h1 {
-    text-align: center;
-  }
-  p {
-    padding-top: 2rem;
-  }
-  b {
-    font-weight: 700;
-  }
-  &:last-child {
-    padding-bottom: 8rem;
-  }
+const DescriptionContainer = styled.div`
+  text-align: center;
+  h2 { font-family: 'Roboto', sans-serif; font-size: 1.75rem }
+  height: auto;
+  padding: 2rem 0;
 `
-const Photo = styled.img`
+const Slide = styled.img`
+  /* min-height: 100vh; */
   object-fit: cover;
-  width: 15rem;
-  margin: auto;
 `
 
 export default function About() {
   const { workImages } = useRouteData()
-    let service
-    let individualItems
-    let nav 
-    if (workImages) {
-        service = workImages.copy
-        individualItems = {
-          [service]: workImages.items
-        }
-        nav = (
-            <AsForNav images={individualItems} />
-        )
-        
-    } else {
-        console.log('no items found')
-    }
-    return (
-      <PageContainer>
-        <HeaderContainer>
-          <Link to="/"><Logo /></Link>
-        </HeaderContainer>
-        <h1>{workImages ? workImages.copy : null}</h1>
-        {nav}
-        <TextContainer>
-        <h1>To Complete</h1>
-       
-        </TextContainer>
-      </PageContainer>
-    );
+  let service
+  let individualItems
+  let slider 
+  if (workImages) {
+      service = workImages.copy
+      individualItems = {
+        [service]: workImages.items
+      }
+
+      const settings = {
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 10000,
+        dots: false,
+        draggable: false,
+        fade: true,
+        infinite: true,
+        pauseOnFocus: false,
+        speed: 0,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        swipe: false,
+        touchMove: false,
+        useTransforms: false
+      }
+      
+      slider = (
+        <Slider {...settings}>
+          {individualItems[workImages.copy].map((post) => {
+            const mobileImg = (post.small600x400) ? `${post.small600x400.fields.file.url}` : `${post.full1920x1280.fields.file.url} 2048w`
+            const sourceSet = (post.medium1200x800) ? `${post.medium1200x800.fields.file.url} 768w, ${post.full1920x1280.fields.file.url} 2048w` : `${post.backgroundImage.fields.file.url} 2048w`
+            return (
+              <React.Fragment key={ids.generate()}>
+                <Link to={`/${service}/single`}>
+                  <Slide 
+                    key={1}
+                    srcSet={sourceSet}
+                    sizes="100vw"
+                    src={mobileImg} >
+                  </Slide>
+                </Link>
+                <DescriptionContainer> <h2>Small writup here...</h2></DescriptionContainer>
+                <Link to={`/${service}/single`}>
+                  <Slide 
+                    key={2}
+                    srcSet={sourceSet}
+                    sizes="100vw"
+                    src={mobileImg} >
+                  </Slide>
+                </Link>
+                <DescriptionContainer> <h2>Small writup here...</h2></DescriptionContainer>
+                <Link to={`/${service}/single`}>
+                  <Slide 
+                    key={3}
+                    srcSet={sourceSet}
+                    sizes="100vw"
+                    src={mobileImg} >
+                  </Slide>
+                </Link>
+                <DescriptionContainer> <h2>Small writup here...</h2></DescriptionContainer>
+                <Link to={`/${service}/single`}>
+                  <Slide 
+                    key={4}
+                    srcSet={sourceSet}
+                    sizes="100vw"
+                    src={mobileImg} >
+                  </Slide>
+                </Link>
+                <DescriptionContainer> <h2>Small writup here...</h2></DescriptionContainer>
+                <Link to={`/${service}/single`}>
+                  <Slide 
+                    key={5}
+                    srcSet={sourceSet}
+                    sizes="100vw"
+                    src={mobileImg} >
+                  </Slide>
+                </Link>
+                <DescriptionContainer> <h2>Small writup here...</h2></DescriptionContainer>
+                <Link to={`/${service}/single`}>
+                  <Slide 
+                    key={6}
+                    srcSet={sourceSet}
+                    sizes="100vw"
+                    src={mobileImg} >
+                  </Slide>
+                </Link>
+                <DescriptionContainer key={ids.generate()}> <h2>Small writup here...</h2></DescriptionContainer>
+              </React.Fragment>
+            )}
+          )}
+        </Slider>
+      )
+      
+  } else {
+      console.log('no items found')
+  }
+  
+  return (
+    <PageContainer>
+      <HeaderContainer>
+        <Link to="/"><Logo /></Link>
+      </HeaderContainer>
+  <h1>{service}</h1>
+      {slider}
+    </PageContainer>
+  )
 }
 

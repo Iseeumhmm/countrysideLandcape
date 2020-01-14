@@ -1,9 +1,10 @@
 import '../../node_modules/slick-carousel/slick/slick.css'
 import "../../node_modules/slick-carousel/slick/slick-theme.css"
-import React from "react";
+import React, { useEffect } from "react";
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import { Link } from 'components/Router'
+import {instagramCode} from '../containers/instagramCode'
 import AsForNav from '../components/carousel/AsForNav'
 const logo = require('../images/logos/LargeLogoSlogan.png')
 
@@ -39,7 +40,40 @@ const TextContainer = styled.div`
 `
 
 export default function AsNavFor() {
+  useEffect(() => {
+    
+    const div = document.createElement("div");
+      
+      
+      div.innerHTML = instagramCode()
+      let container = document.getElementById("text-container")
 
+      container.insertBefore(div, container.childNodes[0])
+
+      function loadScript( url, callback ) {
+        var script = document.createElement( "script" )
+        script.type = "text/javascript";
+        if(script.readyState) {  // only required for IE <9
+          script.onreadystatechange = function() {
+            if ( script.readyState === "loaded" || script.readyState === "complete" ) {
+              script.onreadystatechange = null;
+              callback();
+            }
+          };
+        } else {  //Others
+          script.onload = function() {
+            callback();
+          };
+        }
+        script.src = url;
+        document.getElementsByTagName( "head" )[0].appendChild( script );
+      }
+      // call the function...
+      loadScript("http://www.instagram.com/embed.js", function() {
+        window.instgrm.Embeds.process()
+      });
+      
+  }, [])
   // Get static assets from routes
   const { contentfulImages } = useRouteData()
     let nav 
@@ -58,7 +92,7 @@ export default function AsNavFor() {
         </HeaderContainer>
         <h1>What we do</h1>
         {nav}
-        <TextContainer>
+        <TextContainer id="text-container">
         <h1>Method</h1>
         <p><b>At Countryside Landscape</b> we work with you from the initial consultation through to the final approval to make sure you are 100% satisfied with your landscape project. </p>
         <h2>THE CONSULTATION: </h2>

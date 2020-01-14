@@ -68,6 +68,10 @@ const ContactButton = styled.button`
   z-index: 200;
   width: 14rem;
   height: 4rem;
+  @media( min-width: 582px ) {
+    width: 20rem;
+    height: 8rem;
+  }
 `
 
 const FooterTextContainer = styled.div`
@@ -79,7 +83,7 @@ const FooterTextContainer = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 30rem;
+  width: 35rem;
   text-align: center;
   bottom: 6rem;
   
@@ -103,7 +107,7 @@ export default function Contact() {
             <Link to="/"><Logo /></Link>
             <HeaderTextContainer>
                 <p>Let's make your vision a reality</p>
-                <ContactButton className="artibot-button-expand">CONTACT</ContactButton>
+                <ContactButton className="artibot-button-expand">GET A QUOTE</ContactButton>
             </HeaderTextContainer>
             {/* <FormContainer>
                 <ContactForm />

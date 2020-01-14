@@ -36,6 +36,10 @@ export default {
         })
       },
       {
+        path: '/test-page',
+        template: 'src/pages/test-page.js'
+      },
+      {
         path: '/contact',
         template: 'src/pages/contact.js'
       },
@@ -63,6 +67,46 @@ export default {
         path: '/woodworking',
         template: 'src/pages/services.js',
         getData: () => page("woodworking")
+      },
+      {
+        path: '/woodworking',
+        template: 'src/pages/services.js',
+        getData: () => page("woodworking")
+      },
+      {
+        path: '/pools/single',
+        template: 'src/pages/drilldown.js',
+        getData: () => page("pools")
+      },
+      {
+        path: '/stonework/single',
+        template: 'src/pages/drilldown.js',
+        getData: () => page("stonework")
+      },
+      {
+        path: '/retainingwalls/single',
+        template: 'src/pages/drilldown.js',
+        getData: () => page("retainingwalls")
+      },
+      {
+        path: '/structures/single',
+        template: 'src/pages/drilldown.js',
+        getData: () => page("structures")
+      },
+      {
+        path: '/woodworking/single',
+        template: 'src/pages/drilldown.js',
+        getData: () => page("woodworking")
+      },
+      {
+        path: '/woodworking/single',
+        template: 'src/pages/drilldown.js',
+        getData: () => page("woodworking")
+      },
+      {
+        path: '/Blog',
+        template: 'src/pages/blog.js',
+        // getData: () => page("woodworking")
       },
       // {
       //   path: '/blog',
