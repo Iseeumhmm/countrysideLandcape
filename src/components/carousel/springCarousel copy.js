@@ -23,25 +23,14 @@ const Container = styled.div`
     }
 `
 
-const getSlide = (preLoadedImages) => {
+const getSlide = (slideImage) => {
+    // return <SliderContainer style={{backgroundImage: `url(${slideImage})`}}></SliderContainer>;
     return (
         <SliderContainer 
-        src={preLoadedImages[0]}
-        srcSet={preLoadedImages[1]}
-        sizes="100vw"
-        alt="Pool"
-        >
+            src={`${slideImage}`}
+            >
         </SliderContainer>
     )
-}
-
-const createSrcSets = (links) => {
-    let srcSets = []
-    links.forEach( link => {
-        const srcSet = link.fourHundred
-        srcSets.push([ srcSet.url , `${srcSet.oneX} 400w, ${srcSet.twoX} 800w, ${srcSet.threeX} 1200w` ])
-    } )
-    return srcSets
 }
 
 class Carousel extends React.Component {
@@ -49,8 +38,7 @@ class Carousel extends React.Component {
     state = {
         index: 0,
         length: 1,
-        slideImages: null,
-        preLoadedImages: null
+        slideImages: null
     };
     toggle = e =>
     this.setState(state => ({
@@ -58,43 +46,21 @@ class Carousel extends React.Component {
     }));
 
     componentDidMount() {
-
         const { imageData: { pools: images } } = this.props
-
         let toPreload = []
         images.forEach( image => {
-            let resonsiveImageSet = {
-                fourHundred : {
-                    "url" : image.full1920x1280.fields.file.url,
-                    "oneX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=400&fl=progressive`,
-                    "twoX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=800&fl=progressive`,
-                    "threeX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=1200&fl=progressive`
-                }
-            }
-            toPreload.push(resonsiveImageSet)
-            
+            const img = new Image().src = `${image.full1920x1280.fields.file.url}?fm=jpg&w=1080&fl=progressive`
+            toPreload.push(img)
         })
-        let links = createSrcSets(toPreload)
-        var head = document.getElementsByTagName('head')[0];
-        links.forEach( each => {
-            var link = document.createElement('link');
-            link.rel = 'preload'
-            link.as = 'image'
-            link.href = each[0]
-            link.imageSrcset = each[1]
-            link.imageSizes = "100vw"
-            head.appendChild(link);
-        })
-        
         this.setState({
             length: images.length,
-            preLoadedImages: createSrcSets(toPreload)
+            slideImages: toPreload
         })
     }
 
     render() {
         const { index } = this.state;
-        const { preLoadedImages } = this.state
+        const { slideImages } = this.state
         return (
             <div style={{ backgroundColor: `${this.props.backgroundColor}`}}>
             <Container onClick={this.toggle}>
@@ -109,7 +75,7 @@ class Carousel extends React.Component {
                 >
                 {index => style => (
                     <animated.div style={{ ...style }}>
-                    {getSlide(preLoadedImages[index])}
+                    {getSlide(slideImages[index])}
                     </animated.div>
                 )}
                 </Transition>
