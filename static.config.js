@@ -44,6 +44,10 @@ export default {
         template: 'src/pages/contact.js'
       },
       {
+        path: '/pool-installs',
+        template: 'src/pages/pools.js',
+      },
+      {
         path: '/pools',
         template: 'src/pages/services.js',
         getData: () => page("pools")
