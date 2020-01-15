@@ -29,7 +29,7 @@ export default function BannerNav(props) {
                 fontWeight: "bold"
                 }}>
                 <Link 
-                    to="/our-work"
+                    to="/pool-installs"
                     style={{color: "#93D409"}}
                     >OUR WORK
                 </Link>

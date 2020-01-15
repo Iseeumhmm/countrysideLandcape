@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import $ from 'jquery'
 import { useRouteData } from 'react-static'
@@ -22,7 +22,6 @@ const Container = styled.div`
 const Slide = styled.img`
   filter: brightness(7%) saturate(50%); 
   transform: scale(1.1);
-  // width: 100%;
   min-height: 100vh;
   object-fit: cover;
 `
@@ -44,8 +43,11 @@ const observeChecker = (nodes, observer) => {
 }
 
 export default function Home() {
- 
+  const { homePageSliderImages } = useRouteData()
+
   useEffect(() => {
+
+    
     document.body.classList.add('js-loading');
     let slider = document.getElementsByClassName('slick-slide');
     function callback() {
@@ -61,7 +63,6 @@ export default function Home() {
     });
    }, []);
 
-  const { images } = useRouteData()
   const settings = {
     arrows: false,
     autoplay: true,
@@ -81,15 +82,13 @@ export default function Home() {
   return (
     <Container>
       <Slider {...settings}>
-        {images.map((post) => {
-          const mobileImg = (post.backgroundImageMobile) ? `${post.backgroundImageMobile.fields.file.url}` : `${post.backgroundImage.fields.file.url} 2048w`
-          const sourceSet = (post.backgroundImageMobile) ? `${post.backgroundImageMobile.fields.file.url} 768w, ${post.backgroundImage.fields.file.url} 2048w` : `${post.backgroundImage.fields.file.url} 2048w`
+        {homePageSliderImages.map((url) => {
           return (
             <Slide 
               key={ids.generate()}
-              srcSet={sourceSet}
+              srcSet={`${url}?fm=jpg&w=800&fl=progressive 800w, ${url}?fm=jpg&w=1200&fl=progressive 1200w, ${url}?fm=jpg&w=1900&fl=progressive 1900w`}
               sizes="100vw"
-              src={mobileImg} >
+              src={url} >
             </Slide>
           )}
         )}

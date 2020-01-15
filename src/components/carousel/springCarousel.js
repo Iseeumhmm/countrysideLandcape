@@ -1,6 +1,7 @@
 import React from "react";
 import { animated } from "react-spring";
 import { Transition } from 'react-spring/renderprops'
+import createSrcSet from '../helperFuncrtions/createSrcSets'
 import styled from 'styled-components'
 
 const SliderContainer = styled.img`
@@ -35,21 +36,20 @@ const getSlide = (preLoadedImages) => {
     )
 }
 
-const createSrcSets = (links) => {
-    let srcSets = []
-    links.forEach( link => {
-        const srcSet = link.fourHundred
-        srcSets.push([ srcSet.url , `${srcSet.oneX} 400w, ${srcSet.twoX} 800w, ${srcSet.threeX} 1200w` ])
-    } )
-    return srcSets
-}
+// const createSrcSets = (links) => {
+//     let srcSets = []
+//     links.forEach( link => {
+//         const srcSet = link.fourHundred
+//         srcSets.push([ srcSet.url , `${srcSet.oneX} 400w, ${srcSet.twoX} 800w, ${srcSet.threeX} 1200w` ])
+//     } )
+//     return srcSets
+// }
 
 class Carousel extends React.Component {
 
     state = {
         index: 0,
         length: 1,
-        slideImages: null,
         preLoadedImages: null
     };
     toggle = e =>
@@ -61,20 +61,21 @@ class Carousel extends React.Component {
 
         const { imageData: { pools: images } } = this.props
 
-        let toPreload = []
-        images.forEach( image => {
-            let resonsiveImageSet = {
-                fourHundred : {
-                    "url" : image.full1920x1280.fields.file.url,
-                    "oneX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=400&fl=progressive`,
-                    "twoX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=800&fl=progressive`,
-                    "threeX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=1200&fl=progressive`
-                }
-            }
-            toPreload.push(resonsiveImageSet)
+        // let toPreload = []
+        // images.forEach( image => {
+        //     let resonsiveImageSet = {
+        //         fourHundred : {
+        //             "url" : image.full1920x1280.fields.file.url,
+        //             "oneX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=400&fl=progressive`,
+        //             "twoX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=800&fl=progressive`,
+        //             "threeX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=1200&fl=progressive`
+        //         }
+        //     }
+        //     toPreload.push(resonsiveImageSet)
             
-        })
-        let links = createSrcSets(toPreload)
+        // })
+
+        let links = createSrcSet(images)
         var head = document.getElementsByTagName('head')[0];
         links.forEach( each => {
             var link = document.createElement('link');
@@ -88,7 +89,7 @@ class Carousel extends React.Component {
         
         this.setState({
             length: images.length,
-            preLoadedImages: createSrcSets(toPreload)
+            preLoadedImages: createSrcSet(images)
         })
     }
 

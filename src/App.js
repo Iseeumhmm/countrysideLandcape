@@ -1,9 +1,11 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 //
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import backgroundPools from './images/backgrounds/poolPage.jpg'
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
@@ -45,6 +47,9 @@ const GlobalStyle = createGlobalStyle`
 
       }
     }
+    @media(min-width: 534px) {
+      font-size: 70%;
+    } 
   }
   
   a {
@@ -70,6 +75,9 @@ function App() {
           <Link to="/dynamic">Dynamic</Link>
         </Nav> */}
         <div className="content">
+          <Helmet>
+            <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" />
+          </Helmet>
           <React.Suspense fallback={<em>Loading...</em>}>
             <Router>
               <Dynamic path="dynamic" />
