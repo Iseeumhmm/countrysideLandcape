@@ -53,6 +53,7 @@ const TextContainer = styled.div`
     padding-top: 32rem;
 `
 const pools = () => {
+    const { contentfulImages } = useRouteData()
 
     return (
         <PageContainer>
@@ -64,7 +65,7 @@ const pools = () => {
                         <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features in and around London Ontario. We are a trusted landscape company with the experience, knowledge and staff to create your landscape dream safely, efficiently and affordably.
                         </p>
                         <h2>View some of our recent work</h2>
-                        <SpringCarousel />
+                        <SpringCarousel imageData={contentfulImages}/>
                     </TextContainer>
                 </ContentContainer>
             </BackgroundContainer>

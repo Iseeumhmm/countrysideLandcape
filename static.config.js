@@ -46,6 +46,9 @@ export default {
       {
         path: '/pool-installs',
         template: 'src/pages/pools.js',
+        getData: () => ({
+          contentfulImages
+        })
       },
       {
         path: '/pools',
