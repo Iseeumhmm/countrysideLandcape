@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import BannerNav from '../../containers/home/BannerNav'
-
 const logo = require('../../images/logos/LargeLogo.png')
 
 // styles

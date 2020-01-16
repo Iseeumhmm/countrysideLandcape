@@ -4,7 +4,10 @@ import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import SpringCarousel from '../components/carousel/springCarousel'
 const background = require('../images/backgrounds/poolPage.jpg')
+const backgroundLarge = require('../images/backgrounds/poolPage_1920.jpg')
+
 const logo = require('../images/logos/LargeLogo.png')
+const catalogue = require('../../public/Leisure Pools Consumer Brochure 2019-0424.pdf')
 
 
 const PageContainer = styled.div`
@@ -14,13 +17,17 @@ const PageContainer = styled.div`
 const BackgroundContainer = styled.div`
 width: 100vw;
 background-image: url(${background});
+
+/* background-image: url(${background}); */
 background-repeat: no-repeat;
 filter: brightness(80%);
 background-size: contain;
 background-position: top center;
 @media( min-width: 673px ) {
-    background-size: cover;
+    /* background-size: cover; */
 }
+@media( min-width: 950px ) {
+    background-image: url(${backgroundLarge});}
 `
 const Logo = styled.div`
     z-index: 200;
@@ -54,6 +61,7 @@ const TextContainer = styled.div`
      h2 {
          padding-top: 4rem;
      }
+     p { padding-bottom: 4rem; }
     font-size: 1.25rem;
     padding-top: 65vw;
     @media( min-width: 771px ) {
@@ -83,6 +91,7 @@ const pools = () => {
                         <h1>Your London Pool Builder</h1>
                         <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features in and around London Ontario. We are a trusted landscape company with the experience, knowledge and staff to create your landscape dream safely, efficiently and affordably.
                         </p>
+                        <a href={catalogue} download>Download Pool Catalogue</a>
                         <h2>View some of our recent work</h2>
                         <SpringCarousel imageData={contentfulImages}/>
                     </TextContainer>

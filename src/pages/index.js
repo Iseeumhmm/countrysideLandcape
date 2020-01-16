@@ -1,14 +1,14 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import $ from 'jquery'
+// import $ from 'jquery'
 import { useRouteData } from 'react-static'
 import KenBurns from '../components/carousel/kenBurns'
 import BannerText from '../containers/home/BannerText'
 import instagram from '../images/icons/instagram.png'
 import facebook from '../images/icons/facebook.png'
 
-import '../carousel.css'; 
+// import '../carousel.css'; 
 
 // Styles
 const Container = styled.div`
