@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 // import $ from 'jquery'
 import { useRouteData } from 'react-static'
-import KenBurns from '../components/carousel/kenBurns'
+// import KenBurns from '../components/carousel/kenBurns'
 import BannerText from '../containers/home/BannerText'
 import instagram from '../images/icons/instagram.png'
 import facebook from '../images/icons/facebook.png'
@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <Container>
-      <KenBurns images={ homePageSliderImages } />
+      {/* <KenBurns images={ homePageSliderImages } /> */}
       <BannerText />
       <SocialIcons>
         <img src={instagram} style={{ width: "4rem", margin: "1rem" }} alt="Instagram icon"/>
