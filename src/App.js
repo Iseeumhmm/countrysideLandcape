@@ -6,7 +6,7 @@ import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import backgroundPools from './images/backgrounds/poolPage.jpg'
-import og_image from './images/backgrounds/og_imageOpt.jpg'
+// import og_image from './images/backgrounds/og_imageOpt.jpg'
 
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
@@ -131,8 +131,8 @@ function App() {
             <meta property="og:title" content="Your London Pool Buider" />
             <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
             <meta property="og:url" content="http://www.countrysidelandscape.com" />
-            <meta property="og:image" content={og_image} />
-            <meta property="og:image:secure_url" content={og_image} />
+            <meta property="og:image" content="/poolPage.jpg" />
+            <meta property="og:image:secure_url" content="/poolPage.jpg" />
             <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" />
           </Helmet>
         <div className="content">
