@@ -35,16 +35,6 @@ const getSlide = (preLoadedImages) => {
         </SliderContainer>
     )
 }
-
-// const createSrcSets = (links) => {
-//     let srcSets = []
-//     links.forEach( link => {
-//         const srcSet = link.fourHundred
-//         srcSets.push([ srcSet.url , `${srcSet.oneX} 400w, ${srcSet.twoX} 800w, ${srcSet.threeX} 1200w` ])
-//     } )
-//     return srcSets
-// }
-
 class Carousel extends React.Component {
 
     state = {
@@ -60,21 +50,6 @@ class Carousel extends React.Component {
     componentDidMount() {
 
         const { imageData: { pools: images } } = this.props
-
-        // let toPreload = []
-        // images.forEach( image => {
-        //     let resonsiveImageSet = {
-        //         fourHundred : {
-        //             "url" : image.full1920x1280.fields.file.url,
-        //             "oneX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=400&fl=progressive`,
-        //             "twoX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=800&fl=progressive`,
-        //             "threeX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=1200&fl=progressive`
-        //         }
-        //     }
-        //     toPreload.push(resonsiveImageSet)
-            
-        // })
-
         let links = createSrcSet(images)
         var head = document.getElementsByTagName('head')[0];
         links.forEach( each => {
@@ -89,7 +64,7 @@ class Carousel extends React.Component {
         
         this.setState({
             length: images.length,
-            preLoadedImages: createSrcSet(images)
+            preLoadedImages: links
         })
     }
 

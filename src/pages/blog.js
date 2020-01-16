@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import {useSpring, animated, useTransition, config} from 'react-spring'
-import './ken_burns.css'
+// import './ken_burns.css'
 
 const slides = [
     { id: 0, url: 'photo-1544511916-0148ccdeb877?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1901&q=80i' },

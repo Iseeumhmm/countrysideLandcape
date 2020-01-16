@@ -3,13 +3,12 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import $ from 'jquery'
 import { useRouteData } from 'react-static'
-import Slider from "react-slick";
+import KenBurns from '../components/carousel/kenBurns'
 import BannerText from '../containers/home/BannerText'
 import instagram from '../images/icons/instagram.png'
 import facebook from '../images/icons/facebook.png'
 
 import '../carousel.css'; 
-var ids = require('short-id')
 
 // Styles
 const Container = styled.div`
@@ -19,12 +18,6 @@ const Container = styled.div`
   h1 { color: white; }
 `
 
-const Slide = styled.img`
-  filter: brightness(7%) saturate(50%); 
-  transform: scale(1.1);
-  min-height: 100vh;
-  object-fit: cover;
-`
 const SocialIcons = styled.div`
 position: absolute;
 text-align: center;
@@ -32,35 +25,12 @@ bottom: 0;
 width: 100%;
 `
 
-// Takes in mutationObserver and checks all slides for changes
-const observeChecker = (nodes, observer) => {
-  for (var i=0; i<nodes.length; i++) {
-    observer.observe(
-      nodes[i],
-      { attributes: true }
-    )
-  }
-}
-
 export default function Home() {
   const { homePageSliderImages } = useRouteData()
 
   useEffect(() => {
-
     
-    document.body.classList.add('js-loading');
-    let slider = document.getElementsByClassName('slick-slide');
-    function callback() {
-        let slider = $('.slick-active')
-        slider.addClass('zoom')
-    }
-    const mutationObserver = new MutationObserver(callback)
-    observeChecker(slider, mutationObserver)
-
-    $( document ).ready(function() {
-      document.body.classList.remove('js-loading');
-      $('.slick-slider').addClass('no-pointer')
-    });
+    
    }, []);
 
   const settings = {
@@ -81,7 +51,7 @@ export default function Home() {
   }
   return (
     <Container>
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         {homePageSliderImages.map((url) => {
           return (
             <Slide 
@@ -92,7 +62,8 @@ export default function Home() {
             </Slide>
           )}
         )}
-      </Slider>
+      </Slider> */}
+      <KenBurns images={ homePageSliderImages } />
       <BannerText />
       <SocialIcons>
         <img src={instagram} style={{ width: "4rem", margin: "1rem" }} alt="Instagram icon"/>

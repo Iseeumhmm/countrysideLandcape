@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { Link } from 'components/Router'
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
-import Slider from "react-slick";
 import SpringCarousel from '../components/carousel/springCarousel'
 const background = require('../images/backgrounds/poolPage.jpg')
 const logo = require('../images/logos/LargeLogo.png')
-import { Link } from 'components/Router'
 
 
 const PageContainer = styled.div`
@@ -75,16 +74,6 @@ const ContentContainer = styled.div`
 
 const pools = () => {
     const { contentfulImages } = useRouteData()
-    // useEffect(() => {
-    //     var head = document.getElementsByTagName('head')[0];
-    //     var link = document.createElement('link');
-    //     link.rel = 'preload'
-    //     link.as = 'image'
-    //     link.href = background
-    //     link.imageSizes = "100vw"
-    //     head.appendChild(link);
-    //     console.log('link: ', link)
-    // }, [])
     return (
         <PageContainer>
             <BackgroundContainer>

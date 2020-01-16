@@ -9,13 +9,13 @@ export default {
   getRoutes: async () => {
     const homePageSliderImages = await fetchHomePageImages()
     const contentfulImages = await fetchWorkImages()
-    let page = (key) => {
-      let workImages = {
-        copy: `${key}`,
-        items: contentfulImages[key]
-      }
-      return {workImages}
-    }
+    // let page = (key) => {
+    //   let workImages = {
+    //     copy: `${key}`,
+    //     items: contentfulImages[key]
+    //   }
+    //   return {workImages}
+    // }
     return [
       {
         path: '/',
@@ -37,12 +37,15 @@ export default {
       // },
       // {
       //   path: '/test-page',
-      //   template: 'src/pages/test-page.js'
+      //   template: 'src/pages/test-page.js',
+      //   getData: () => ({
+      //     homePageSliderImages
+      //   })
       // },
-      // {
-      //   path: '/contact',
-      //   template: 'src/pages/contact.js'
-      // },
+      {
+        path: '/contact',
+        template: 'src/pages/contact.js'
+      },
       {
         path: '/pool-installs',
         template: 'src/pages/pools.js',
