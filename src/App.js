@@ -5,7 +5,7 @@ import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import backgroundPools from './images/backgrounds/poolPage.jpg'
+// import backgroundPools from './images/backgrounds/poolPage.jpg'
 import og_image from '../public/og_imageOpt.jpg'
 
 
@@ -133,7 +133,7 @@ function App() {
             <meta property="og:url" content="http://www.countrysidelandscape.com" />
             <meta property="og:image" content={og_image} />
             <meta property="og:image:secure_url" content={og_image} />
-            <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" />
+            {/* <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" /> */}
           </Helmet>
         <div className="content">
           
