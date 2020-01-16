@@ -1,7 +1,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import $ from 'jquery'
+// import $ from 'jquery'
 import { useRouteData } from 'react-static'
 import KenBurns from '../components/carousel/kenBurns'
 import BannerText from '../containers/home/BannerText'
@@ -12,6 +12,9 @@ import facebook from '../images/icons/facebook.png'
 
 // Styles
 const Container = styled.div`
+  /* background-image: url(${backg});
+  background-size: cover; */
+  
   position: relative;
   width: 100vw;
   height: 100vh;
