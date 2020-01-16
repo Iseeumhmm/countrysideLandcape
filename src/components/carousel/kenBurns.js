@@ -23,7 +23,7 @@ function App(props) {
 
     const slides = []
     homePageSliderImages.forEach( function (each, i) {
-        slides.push({ id: i, url: `${each}?fm=jpg&w=1900&fl=progressive` })
+        slides.push({ id: i, url: `${each}?fm=webp&w=1900&q=35` })
     })
 
     const duration = 10000

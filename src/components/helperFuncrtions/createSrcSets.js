@@ -5,9 +5,9 @@ function createSrcSet(links) {
         let resonsiveImageSet = {
             fourHundred : {
                 "url" : image.full1920x1280.fields.file.url,
-                "oneX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=400&fl=progressive`,
-                "twoX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=800&fl=progressive`,
-                "threeX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=1200&fl=progressive`
+                "oneX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=400&q=50&fl=progressive`,
+                "twoX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=800&q=50&fl=progressive`,
+                "threeX" : `${image.full1920x1280.fields.file.url}?fm=jpg&w=1200&q=50&fl=progressive`
             }
         }
         toPreload.push(resonsiveImageSet)
