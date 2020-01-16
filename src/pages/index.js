@@ -12,9 +12,6 @@ import facebook from '../images/icons/facebook.png'
 
 // Styles
 const Container = styled.div`
-  /* background-image: url(${backg});
-  background-size: cover; */
-  
   position: relative;
   width: 100vw;
   height: 100vh;
