@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import $ from 'jquery'
 import { useRouteData } from 'react-static'
@@ -28,41 +28,8 @@ width: 100%;
 export default function Home() {
   const { homePageSliderImages } = useRouteData()
 
-  useEffect(() => {
-    
-    
-   }, []);
-
-  const settings = {
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 10000,
-    dots: false,
-    draggable: false,
-    fade: true,
-    infinite: true,
-    pauseOnFocus: false,
-    speed: 0,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    swipe: false,
-    touchMove: false,
-    useTransforms: false
-  }
   return (
     <Container>
-      {/* <Slider {...settings}>
-        {homePageSliderImages.map((url) => {
-          return (
-            <Slide 
-              key={ids.generate()}
-              srcSet={`${url}?fm=jpg&w=800&fl=progressive 800w, ${url}?fm=jpg&w=1200&fl=progressive 1200w, ${url}?fm=jpg&w=1900&fl=progressive 1900w`}
-              sizes="100vw"
-              src={url} >
-            </Slide>
-          )}
-        )}
-      </Slider> */}
       <KenBurns images={ homePageSliderImages } />
       <BannerText />
       <SocialIcons>

@@ -6,6 +6,7 @@ import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import backgroundPools from './images/backgrounds/poolPage.jpg'
+import og_image from './images/backgrounds/og_image.jpg'
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
@@ -74,10 +75,16 @@ function App() {
           <Link to="/blog">Blog</Link>
           <Link to="/dynamic">Dynamic</Link>
         </Nav> */}
-        <div className="content">
-          <Helmet>
+        <Helmet>
+        <title>Your London Pool Builder</title>
+            <meta property="og:title" content="Your London Pool Buider" />
+            <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
+            <meta property="og:url" content="http://www.countrysidelandscape.com" />
+
             <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" />
           </Helmet>
+        <div className="content">
+          
           <React.Suspense fallback={<em>Loading...</em>}>
             <Router>
               <Dynamic path="dynamic" />
