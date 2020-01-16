@@ -3,7 +3,7 @@ import { Link } from 'components/Router'
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import SpringCarousel from '../components/carousel/springCarousel'
-const background = require('../images/backgrounds/poolPageOpt.jpg')
+const background = require('../images/backgrounds/poolPage.jpg')
 const logo = require('../images/logos/LargeLogo.png')
 
 

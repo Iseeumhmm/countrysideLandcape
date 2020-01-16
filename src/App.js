@@ -5,8 +5,9 @@ import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import backgroundPools from './images/backgrounds/poolPageOpt.jpg'
+import backgroundPools from './images/backgrounds/poolPage.jpg'
 import og_image from './images/backgrounds/og_imageOpt.jpg'
+
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
@@ -18,7 +19,53 @@ const theme = {
 
 const GlobalStyle = createGlobalStyle`
   /* @import url('https://fonts.googleapis.com/css?family=Oswald:300,700&display=swap" rel="stylesheet'); */
-  @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,700|Roboto:300&display=swap');
+  /* @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,700|Roboto:300&display=swap'); */
+  /* alegreya-sans-sc-300 - latin */
+  @font-face {
+    font-family: 'Alegreya Sans SC';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Alegreya Sans SC Light'), local('AlegreyaSansSC-Light'),
+        url('/fonts/alegreya-sans-sc-v9-latin/alegreya-sans-sc-v9-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/alegreya-sans-sc-v9-latin/alegreya-sans-sc-v9-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+    /* alegreya-sans-sc-regular - latin */
+    @font-face {
+      font-family: 'Alegreya Sans SC';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Alegreya Sans SC Regular'), local('AlegreyaSansSC-Regular'),
+          url('/fonts/alegreya-sans-sc-v9-latin/alegreya-sans-sc-v9-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/alegreya-sans-sc-v9-latin/alegreya-sans-sc-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+    /* alegreya-sans-sc-700 - latin */
+    @font-face {
+      font-family: 'Alegreya Sans SC';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Alegreya Sans SC Bold'), local('AlegreyaSansSC-Bold'),
+          
+          url('/fonts/alegreya-sans-sc-v9-latin/alegreya-sans-sc-v9-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/alegreya-sans-sc-v9-latin/alegreya-sans-sc-v9-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+    /* roboto-300 - latin */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 300;
+      src: local('Roboto Light'), local('Roboto-Light'),
+          url('/fonts/roboto-v20-latin/roboto-v20-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-v20-latin/roboto-v20-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+    /* roboto-regular - latin */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto'), local('Roboto-Regular'),
+          url('/fonts/roboto-v20-latin/roboto-v20-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+          url('/fonts/roboto-v20-latin/roboto-v20-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  } 
 
   * {
     scroll-behavior: smooth;
@@ -29,7 +76,11 @@ const GlobalStyle = createGlobalStyle`
     body {
       /* // font-family: 'Oswald', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; */
 
+
+
+      
       font-family: 'Alegreya Sans SC', sans-serif;
+
 
       font-weight: 300;
       line-height: 2.6rem;
