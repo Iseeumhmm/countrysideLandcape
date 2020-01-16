@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import {useSpring, animated, useTransition, config} from 'react-spring'
 import './ken_burns.css'
 
-
 const Image = ({ url, duration }) => {
     const props = useSpring({
         from: {
@@ -23,7 +22,7 @@ function App(props) {
 
     const slides = []
     homePageSliderImages.forEach( function (each, i) {
-        slides.push({ id: i, url: `${each}?fm=webp&w=1900&q=35` })
+        slides.push({ id: i, url: `${each}?fm=webp&w=1900` })
     })
 
     const duration = 10000
@@ -35,7 +34,8 @@ function App(props) {
         config: config.molasses,
       }, [])
     useEffect(() => { 
-        void setInterval(() => set(state => (state + 1) % homePageSliderImages.length), duration)
+        const interval = setInterval(() => set(state => (state + 1) % homePageSliderImages.length), duration)
+        return () => clearInterval(interval)
     }, [])
     return transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={{ ...props }}>
