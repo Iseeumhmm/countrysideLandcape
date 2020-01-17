@@ -128,6 +128,7 @@ function App() {
             <meta property="og:url" content="http://www.countrysidelandscape.com" />
             <meta property="og:image" content={og_image} />
             <meta property="og:image:secure_url" content={og_image} />
+            <meta name="apple-mobile-web-app-capable" content="yes"></meta>
             <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" />
         </Helmet>
         <div className="content">

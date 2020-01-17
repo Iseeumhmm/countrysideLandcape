@@ -24,6 +24,7 @@ import styled from 'styled-components'
 // Styles
 const Container = styled.div`
   position: fixed;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   h1 { color: white; }

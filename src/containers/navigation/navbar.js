@@ -75,6 +75,7 @@ const StyledBurger = styled.button`
   padding: 0;
   z-index: 52;
 
+
   &:focus {
     outline: none;
   }
@@ -103,7 +104,7 @@ const StyledBurger = styled.button`
   }
 `
 
-const Burger = ({ open, setOpen }) => {
+const Burger = ({ shadow, open, setOpen }) => {
   return (
     <StyledBurger style={{color: 'black'}} open={open} onClick={() => setOpen(!open)}>
       <div />
@@ -133,18 +134,13 @@ const Burger = ({ open, setOpen }) => {
   
 
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [open, setOpen] = useState(false);
   const node = React.useRef();
   return (
-    <div style={{}}>
-      {/* <div>
-        <h1>Hello. This is burger menu tutorial</h1>
-        <img src="https://image.flaticon.com/icons/svg/2016/2016012.svg" alt="burger icon" />
-        <small>Icon made by <a href="https://www.freepik.com/home">Freepik</a> from <a href="https://www.flaticon.com">www.flaticon.com</a></small>
-       </div> */}
+    <div>
       <div ref={node} style={{}}>
-        <Burger open={open} setOpen={setOpen} />
+        <Burger shadow={props.shadow} open={open} setOpen={setOpen} />
         <Menu style={{zIndex: "1000"}} open={open} setOpen={setOpen} />
       </div>
     </div>

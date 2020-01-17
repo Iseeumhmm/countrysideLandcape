@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 import styled from 'styled-components'
 import { Link } from 'components/Router'
 import '../artibot.css'
-import ContactForm from '../containers/contactForm/contactForm'
-const logo = require('../images/logos/LargeLogo.png')
+import NavBar from '../containers/navigation/navbar'
+const logo = require('../images/logos/logo-trial.png')
 const map = require('../images/backgrounds/contact.jpg')
 
 // Styles
 
 const PageContainer = styled.div`
+  position: relative;
+  overflow-x: hidden;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -23,7 +25,7 @@ const MapContainer = styled.div`
 `
 const HeaderTextContainer = styled.div`
   position: absolute;
-  top: 11rem;
+  top: 14rem;
   width: 100%;
   p {
       color: #fff;
@@ -41,12 +43,12 @@ const BannerOverlay = styled.div`
 `
 const Logo = styled.div`
   position: absolute;
-  top: 4rem;
-  left: calc(50% - 1rem);
-  transform: translateX(-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin:  1rem 0 1rem;
   width: 23rem;
-  min-height: 7rem;
+  min-height: 8rem;
   background-image: url(${logo});
   background-size: cover;
   background-position: center center;
@@ -60,10 +62,11 @@ const Logo = styled.div`
 // `
 
 const ContactButton = styled.button`
-  background-color: #93D409;
+  background-color: #5EBB46;
   color: white;
   border: none;
   border-radius: 4px;
+  margin-top: 1.5rem;
   box-shadow: 1px 1px 5px 2px rgba(0,0,0, .3);
   font-size: 1.75rem;
   z-index: 200;
@@ -75,16 +78,25 @@ const ContactButton = styled.button`
   }
 `
 
-const FooterTextContainer = styled.div`
+const Address = styled.div`
+  position: absolute;
+  bottom: 11rem; 
+  color: white; 
+  width: 100%; 
+  text-align: center; 
   font-family: 'Roboto', sans-serif;
+`
+
+const FooterTextContainer = styled.div`
   h2, a { 
     color: #FFFFFFFF; 
     font-size: 2rem;
   }
+  a { font-size: 2.5rem }
   position: absolute;
   left: 2rem;
   width: 30rem;
-  bottom: 0;
+  bottom: .5rem;
   
 `
 export default function Contact() {
@@ -101,19 +113,20 @@ export default function Contact() {
     }, [])
     return (
         <PageContainer>
+            <NavBar style={{zIndex: "1000"}}/>
             <MapContainer />
             <BannerOverlay/>
             <Link to="/"><Logo /></Link>
             <HeaderTextContainer>
-                <p>Make it your reality</p>
+                <p>Make it yours</p>
                 <ContactButton className="artibot-button-expand">QUOTE</ContactButton>
             </HeaderTextContainer>
             {/* <FormContainer>
                 <ContactForm />
             </FormContainer> */}
-            <div style={{position: "absolute", bottom: "11rem", color: "white", width: "100%", textAlign: "center"}}>
+            <Address>
               <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E.<br/> Aylmer, ON</h2>
-            </div>
+            </Address>
             
             <FooterTextContainer>
               <div style={{ 
