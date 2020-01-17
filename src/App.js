@@ -4,7 +4,7 @@ import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-const backgroundPools = require('./images/backgrounds/poolPage.jpg')
+// const backgroundPools = require('./images/backgrounds/poolPage.jpg')
 const og_image = require('./images/backgrounds/og_imageOpt.jpg')
 
 
@@ -129,7 +129,7 @@ function App() {
             <meta property="og:image" content={og_image} />
             <meta property="og:image:secure_url" content={og_image} />
             <meta name="apple-mobile-web-app-capable" content="yes"></meta>
-            <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" />
+            {/* <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" /> */}
         </Helmet>
         <div className="content">
           <React.Suspense fallback={<em>Loading...</em>}>
