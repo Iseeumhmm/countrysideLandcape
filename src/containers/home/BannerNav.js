@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-var Link = require('../../components/Router').Link
+import { Link } from 'components/Router'
 
 
 const NavList = styled.ul`

@@ -51,7 +51,8 @@ export default function Home() {
     window.addEventListener('resize', () => {
       setViewHeight(window.innerHeight)
     });
-    return () => window.removeEventListener('resize');
+    return () => window.removeEventListener('resize', () => {
+      setViewHeight(window.innerHeight)})
   }, [])
   return (
     <Container vh={viewHeight} style={{position: "relative", overflowX: "hidden"}}>

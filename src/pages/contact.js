@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 import { Link } from 'components/Router'
 import '../artibot.css'
@@ -25,12 +25,13 @@ const MapContainer = styled.div`
 `
 const HeaderTextContainer = styled.div`
   position: absolute;
-  top: 14rem;
+  top: 36vw;
   width: 100%;
   p {
       color: #fff;
       font-weight: 300;
-      font-size: 2.25rem;
+      font-family: 'Alegreya Sans SC';
+      font-size: 4rem;
   }
 `
 const BannerOverlay = styled.div`
@@ -42,7 +43,7 @@ const BannerOverlay = styled.div`
 `
 const Logo = styled.div`
   position: absolute;
-  top: 50%;
+  top: 100vw;
   left: calc(50% - 1rem);
   transform: translate(-50%, -50%);
   margin:  1rem 0 1rem;
@@ -54,7 +55,7 @@ const Logo = styled.div`
 `
 
 const ContactButton = styled.button`
-  background-color: #5EBB46;
+  background-color: rgba(255,255,255, .1);
   color: white;
   border: none;
   border-radius: 4px;
@@ -76,7 +77,7 @@ const Address = styled.div`
   color: white; 
   width: 100%; 
   text-align: center; 
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
 `
 
 const FooterTextContainer = styled.div`
@@ -84,6 +85,7 @@ const FooterTextContainer = styled.div`
     color: #FFFFFFFF; 
     font-size: 1.75rem;
   }
+  
   a { font-size: 2rem; }
   position: absolute;
   left: 2.5rem;
@@ -92,8 +94,14 @@ const FooterTextContainer = styled.div`
   
 `
 export default function Contact() {
+    const [viewHeight, setViewHeight] = useState(0)
 
-    useEffect(() => {
+    useEffect( () => {
+      setViewHeight(window.innerHeight)
+      window.addEventListener('resize', () => {
+        setViewHeight(window.innerHeight)
+      });
+      
       const script = document.createElement("script");
       script.type = "text/javascript"
       script.async = true
@@ -102,14 +110,16 @@ export default function Contact() {
       script.innerHTML = "!function(t,e){t.artibotApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};var a=!1,i=e.createElement('script');i.async=!0,i.type='text/javascript',i.src='https://app.artibot.ai/loader.js',e.getElementsByTagName('head').item(0).appendChild(i),i.onreadystatechange=i.onload=function(){if(!(a||this.readyState&&'loaded'!=this.readyState&&'complete'!=this.readyState)){new window.ArtiBot({i:'31743cbc-72f3-4c39-91de-9447c14185d7'});a=!0}}}(window,document);"
       document.body.appendChild(script)
       // return () => script.parentNode.removeChild( script );
-    }, [])
+      return () => window.removeEventListener('resize', () => {
+        setViewHeight(window.innerHeight)})
+      }, [])
     return (
         <PageContainer>
             <NavBar style={{zIndex: "1000"}}/>
             <MapContainer />
             <BannerOverlay/>
             <Link to="/"><Logo /></Link>
-            <HeaderTextContainer>
+            <HeaderTextContainer vh={viewHeight}>
                 <p>Make it yours</p>
                 <ContactButton className="artibot-button-expand">QUOTE</ContactButton>
             </HeaderTextContainer>
