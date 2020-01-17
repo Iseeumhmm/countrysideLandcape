@@ -7,7 +7,7 @@ import SpringCarousel from '../components/carousel/springCarousel'
 const background = require('../images/backgrounds/poolPage.jpg')
 const backgroundLarge = require('../images/backgrounds/poolPage_2360.jpg')
 
-const logo = require('../images/logos/logo-trial.png')
+const logo = require('../images/logos/LargeLogoBlack.png')
 const catalogue = require('../../public/Leisure Pools Consumer Brochure 2019-0424.pdf')
 
 const PageContainer = styled.div`
@@ -34,7 +34,7 @@ const Logo = styled.div`
     left: calc(50% - 1rem);
     transform: translateX(-50%);
     width: 23rem;
-    min-height: 7rem;
+    min-height: 8rem;
     background-image: url(${logo});
     background-size: cover;
     background-position: center center;

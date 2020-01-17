@@ -26,7 +26,7 @@ const Container = styled.div`
   position: fixed;
   overflow: hidden;
   width: 100vw;
-  /* height: 100vh; */
+  height: 100vh;
   /* height: calc(${ props => props.vh } * 100); */
   height: ${ props => props.vh}px;
 
