@@ -2,7 +2,7 @@
 import React from 'react'
 import { useRouteData } from 'react-static'
 import KenBurns from '../components/carousel/kenBurns'
-import BrowserDetection from 'react-browser-detection';
+// import BrowserDetection from 'react-browser-detection';
 import BannerText from '../containers/home/BannerText'
 import NavBar from '../containers/navigation/navbar'
 import instagram from '../images/icons/instagram.png'
@@ -41,9 +41,9 @@ export default function Home() {
 
   return (
     <Container style={{position: "relative", overflowX: "hidden"}}>
-       <BrowserDetection>
+       {/* <BrowserDetection>
        { browserHandler }
-    </BrowserDetection>
+    </BrowserDetection> */}
       <NavBar style={{zIndex: "1000"}}/>
       <KenBurns images={ homePageSliderImages } />
       <BannerText />
