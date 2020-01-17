@@ -9,17 +9,17 @@ import instagram from '../images/icons/instagram.png'
 import facebook from '../images/icons/facebook.png'
 import styled from 'styled-components'
 
-const browserHandler = {
-  chrome: () => {
-    console.log('This is Chrome')
-  return <div>Chrome is fantastic!</div>
-  },
-  googlebot: () => <div>Hi GoogleBot!</div>,
-  default: (browser) => {
-    console.log("This is: ", browser)
-    return <div>Hi {browser}!</div>
-  },
-};
+// const browserHandler = {
+//   chrome: () => {
+//     console.log('This is Chrome')
+//   return <div>Chrome is fantastic!</div>
+//   },
+//   googlebot: () => <div>Hi GoogleBot!</div>,
+//   default: (browser) => {
+//     console.log("This is: ", browser)
+//     return <div>Hi {browser}!</div>
+//   },
+// };
 
 // Styles
 const Container = styled.div`
