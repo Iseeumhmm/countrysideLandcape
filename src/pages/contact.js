@@ -26,13 +26,19 @@ const BackgroundContainer = styled.div`
 `
 const TextContainer = styled.div`
   position: absolute;  
-  top: 42vw;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
   p {
-      color: #fff;
-      font-weight: 300;
-      font-family: 'Alegreya Sans SC';
-      font-size: 4rem;
+    margin-top: 0;
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Alegreya Sans SC';
+    font-size: 4rem;
+  }
+  @media(min-width: 635px){
+    top: 60%;
   }
 `
 const Logo = styled.div`
@@ -55,10 +61,6 @@ const ContactButton = styled.button`
   z-index: 200;
   width: 11rem;
   height: 4rem;
-  @media( min-width: 582px ) {
-    width: 20rem;
-    height: 8rem;
-  }
 `
 
 const Address = styled.div`
@@ -66,6 +68,7 @@ const Address = styled.div`
   color: white; 
   width: 100%; 
   text-align: center; 
+  h2 { margin-bottom: 0; }
 `
 
 const FooterTextContainer = styled.div`
@@ -73,13 +76,15 @@ const FooterTextContainer = styled.div`
     color: #FFFFFFFF; 
     font-size: 1.75rem;
   }
-  
   a { font-size: 2rem; }
   position: absolute;
   left: 2.5rem;
-  width: 30rem;
+  width: 23rem;
   bottom: 0.75rem;
-  
+  @media(min-width: 635px){
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `
 export default function Contact() {
     const [viewHeight, setViewHeight] = useState(0)
@@ -103,7 +108,7 @@ export default function Contact() {
       }, [])
     return (
         <PageContainer vh={viewHeight}>
-          <NavBar style={{zIndex: "1000"}}/>
+          <NavBar black style={{zIndex: "1000"}}/>
           <BackgroundContainer />
           <TextContainer>
             <p>Make it yours</p>
@@ -112,15 +117,12 @@ export default function Contact() {
               <Logo vh={viewHeight}/>
             </Link>
             <Address>
-              <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E.<br/> Aylmer, ON</h2>
+              <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E. Aylmer, ON</h2>
             </Address>
           </TextContainer>
           <FooterTextContainer>
-            <div style={{ 
-                width: "75%" }}>
                 <h2 style={{textAlign: "left"}}>JOHN<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
                 <h2 style={{textAlign: "left"}}>VINCE<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
-            </div>
           </FooterTextContainer>
         </PageContainer>
     );

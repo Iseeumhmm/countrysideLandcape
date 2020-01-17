@@ -10,7 +10,7 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: rgba(255,255,255, 0.5);
+  background: rgba(255,255,255, 0.8);
   transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
   height: 100vh;
   text-align: left;
@@ -21,7 +21,7 @@ const StyledMenu = styled.nav`
   z-index: 51;
 
   @media (max-width: 576px) {
-    background: rgba(255,255,255, 0.925);
+    background: rgba(255,255,255, 0.95);
     padding: 0;
     width: 100%;
     }
@@ -45,7 +45,7 @@ const StyledMenu = styled.nav`
     }
 
     &:hover {
-      color: #343078;
+      /* color: #343078; */
     }
   }
 `
@@ -53,6 +53,7 @@ const StyledMenu = styled.nav`
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
+        <Link to="/" onClick={() => setOpen(!open)}>Home</Link>
         <Link to="/pool-installs" onClick={() => setOpen(!open)}>Our Work</Link>
         <Link to="/about" onClick={() => setOpen(!open)}>About Us</Link>
         <Link to="/contact" onClick={() => setOpen(!open)}>Get Started</Link>
@@ -84,6 +85,7 @@ const StyledBurger = styled.button`
     width: 2rem;
     height: 0.25rem;
     background: ${({ open }) => open ? '#0D0C1D' : '#EFFFFA'};
+    background-color: ${ props => props.black ? "black" : "white"}
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -104,9 +106,9 @@ const StyledBurger = styled.button`
   }
 `
 
-const Burger = ({ shadow, open, setOpen }) => {
+const Burger = ({ black, open, setOpen }) => {
   return (
-    <StyledBurger style={{color: 'black'}} open={open} onClick={() => setOpen(!open)}>
+    <StyledBurger black={black} style={{color: 'black'}} open={open} onClick={() => setOpen(!open)}>
       <div />
       <div />
       <div />
@@ -140,7 +142,7 @@ const NavBar = (props) => {
   return (
     <div>
       <div ref={node} style={{}}>
-        <Burger shadow={props.shadow} open={open} setOpen={setOpen} />
+        <Burger black={props.black} open={open} setOpen={setOpen} />
         <Menu style={{zIndex: "1000"}} open={open} setOpen={setOpen} />
       </div>
     </div>
