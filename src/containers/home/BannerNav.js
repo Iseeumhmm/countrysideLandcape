@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 var Link = require('../../components/Router').Link
 
+
 const NavList = styled.ul`
     margin-bottom: -4rem;
     padding: 0;

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import {useSpring, animated, useTransition, config} from 'react-spring'
+import { useSpring, animated, useTransition, config} from 'react-spring'
 import './ken_burns.css'
+
+
+
 
 const Image = ({ url, duration }) => {
     const props = useSpring({
@@ -19,7 +22,6 @@ const Image = ({ url, duration }) => {
 
 function App(props) {
     const homePageSliderImages = props.images
-
     const slides = []
     homePageSliderImages.forEach( function (each, i) {
         slides.push({ id: i, url: `${each}?w=1900&q=50&fl=progressive` })

@@ -4,7 +4,7 @@ import { Link } from 'components/Router'
 import '../artibot.css'
 import ContactForm from '../containers/contactForm/contactForm'
 const logo = require('../images/logos/LargeLogo.png')
-const map = require('../images/backgrounds/map.jpg')
+const map = require('../images/backgrounds/contact.jpg')
 
 // Styles
 
@@ -23,7 +23,7 @@ const MapContainer = styled.div`
 `
 const HeaderTextContainer = styled.div`
   position: absolute;
-  top: 10rem;
+  top: 11rem;
   width: 100%;
   p {
       color: #fff;
@@ -41,6 +41,7 @@ const BannerOverlay = styled.div`
 `
 const Logo = styled.div`
   position: absolute;
+  top: 4rem;
   left: calc(50% - 1rem);
   transform: translateX(-50%);
   margin:  1rem 0 1rem;
@@ -63,11 +64,10 @@ const ContactButton = styled.button`
   color: white;
   border: none;
   border-radius: 4px;
-  margin-top: 2rem;
   box-shadow: 1px 1px 5px 2px rgba(0,0,0, .3);
   font-size: 1.75rem;
   z-index: 200;
-  width: 20rem;
+  width: 11rem;
   height: 4rem;
   @media( min-width: 582px ) {
     width: 20rem;
@@ -82,11 +82,9 @@ const FooterTextContainer = styled.div`
     font-size: 2rem;
   }
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 35rem;
-  text-align: center;
-  bottom: 6rem;
+  left: 2rem;
+  width: 30rem;
+  bottom: 0;
   
 `
 export default function Contact() {
@@ -107,18 +105,19 @@ export default function Contact() {
             <BannerOverlay/>
             <Link to="/"><Logo /></Link>
             <HeaderTextContainer>
-                <p>Let's make your vision a reality</p>
-                <ContactButton className="artibot-button-expand">GET A QUOTE</ContactButton>
+                <p>Make it your reality</p>
+                <ContactButton className="artibot-button-expand">QUOTE</ContactButton>
             </HeaderTextContainer>
             {/* <FormContainer>
                 <ContactForm />
             </FormContainer> */}
-            <FooterTextContainer>
+            <div style={{position: "absolute", bottom: "11rem", color: "white", width: "100%", textAlign: "center"}}>
               <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E.<br/> Aylmer, ON</h2>
+            </div>
+            
+            <FooterTextContainer>
               <div style={{ 
-                  width: "75%", 
-                  margin: "auto",
-                  paddingBottom: "2rem" }}>
+                  width: "75%" }}>
                   <h2 style={{textAlign: "left"}}>JOHN<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
                   <h2 style={{textAlign: "left"}}>VINCE<a href="tel: 519-619-9593" style={{float: "right"}}>(519) 619-9593</a></h2>
               </div>

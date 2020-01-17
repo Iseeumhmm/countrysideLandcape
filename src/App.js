@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
-//
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
@@ -78,7 +77,6 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-      
       font-family: 'Alegreya Sans SC', sans-serif;
 
 
@@ -102,6 +100,9 @@ const GlobalStyle = createGlobalStyle`
     @media(min-width: 534px) {
       font-size: 70%;
     } 
+    @media(min-width: 1575px) {
+      font-size: 90%;
+    } 
   }
   
   a {
@@ -120,12 +121,6 @@ function App() {
     <Root>
        <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {/* <Nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/dynamic">Dynamic</Link>
-        </Nav> */}
         <Helmet>
         <title>Your London Pool Builder</title>
             <meta property="og:title" content="Your London Pool Buider" />
@@ -134,9 +129,8 @@ function App() {
             <meta property="og:image" content={og_image} />
             <meta property="og:image:secure_url" content={og_image} />
             <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" />
-          </Helmet>
+        </Helmet>
         <div className="content">
-          
           <React.Suspense fallback={<em>Loading...</em>}>
             <Router>
               <Dynamic path="dynamic" />

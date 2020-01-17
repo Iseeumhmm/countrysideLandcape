@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import BannerNav from '../../containers/home/BannerNav'
-const logo = require('../../images/logos/LargeLogo.png')
+import styled from 'styled-components'
+const logo = require('../../images/logos/logo-trial.png')
 
 // styles
 const TextContainer = styled.div`
