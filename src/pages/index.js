@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouteData } from 'react-static'
 import KenBurns from '../components/carousel/kenBurns'
 // import BrowserDetection from 'react-browser-detection';
@@ -26,7 +26,12 @@ const Container = styled.div`
   position: fixed;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
+  /* height: calc(${ props => props.vh } * 100); */
+  height: ${ props => props.vh}px;
+
+
+  /* height: calc(var(viewHeight, 1vh) * 100); */
   h1 { color: white; }
 `
 
@@ -39,9 +44,17 @@ width: 100%;
 
 export default function Home() {
   const { homePageSliderImages } = useRouteData()
+  const [viewHeight, setViewHeight] = useState(0)
 
+  useEffect( () => {
+    setViewHeight(window.innerHeight)
+    window.addEventListener('resize', () => {
+      setViewHeight(window.innerHeight)
+    });
+    return () => window.removeEventListener('resize');
+  }, [])
   return (
-    <Container style={{position: "relative", overflowX: "hidden"}}>
+    <Container vh={viewHeight} style={{position: "relative", overflowX: "hidden"}}>
        {/* <BrowserDetection>
        { browserHandler }
     </BrowserDetection> */}

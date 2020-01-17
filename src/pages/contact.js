@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'components/Router'
 import '../artibot.css'
 import NavBar from '../containers/navigation/navbar'
-const logo = require('../images/logos/logo-trial.png')
+const logo = require('../images/logos/LargeLogo.png')
 const map = require('../images/backgrounds/contact.jpg')
 
 // Styles
@@ -39,12 +39,11 @@ const BannerOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 20rem;
-  /* background-color: rgba( 0, 0, 0, .7); */
 `
 const Logo = styled.div`
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: calc(50% - 1rem);
   transform: translate(-50%, -50%);
   margin:  1rem 0 1rem;
   width: 23rem;
@@ -53,13 +52,6 @@ const Logo = styled.div`
   background-size: cover;
   background-position: center center;
 `
-// const FormContainer = styled.div`
-//   position: absolute;
-//   top: 25rem !important;
-//   width: 95%;
-//   left: 50%;
-//   transform: translateX(-50%);
-// `
 
 const ContactButton = styled.button`
   background-color: #5EBB46;
@@ -67,7 +59,7 @@ const ContactButton = styled.button`
   border: none;
   border-radius: 4px;
   margin-top: 1.5rem;
-  box-shadow: 1px 1px 5px 2px rgba(0,0,0, .3);
+  box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
   font-size: 1.75rem;
   z-index: 200;
   width: 11rem;
@@ -90,13 +82,13 @@ const Address = styled.div`
 const FooterTextContainer = styled.div`
   h2, a { 
     color: #FFFFFFFF; 
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
-  a { font-size: 2.5rem }
+  a { font-size: 2rem; }
   position: absolute;
-  left: 2rem;
+  left: 2.5rem;
   width: 30rem;
-  bottom: .5rem;
+  bottom: 0.75rem;
   
 `
 export default function Contact() {

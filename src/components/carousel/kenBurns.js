@@ -20,7 +20,7 @@ const Image = ({ url, duration }) => {
     return <animated.div className="bg" style={{ ...props, backgroundImage: url, filter: "brightness(55%)" }} />
 }
 
-function App(props) {
+export default function KenBurns(props) {
     const homePageSliderImages = props.images
     const slides = []
     homePageSliderImages.forEach( function (each, i) {
@@ -46,5 +46,3 @@ function App(props) {
     ))
 
 }
-
-export default App
