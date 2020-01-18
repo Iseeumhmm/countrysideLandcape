@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Globals, useSpring, animated, useTransition, config} from 'react-spring'
+import { useSpring, animated, useTransition, config} from 'react-spring'
 import './ken_burns.css'
 
 // Globals.injectFrame(
@@ -41,7 +41,7 @@ export default function KenBurns(props) {
     useEffect(() => { 
         const interval = setInterval(() => set(state => (state + 1) % homePageSliderImages.length), duration)
         return () => clearInterval(interval)
-    }, [])
+    }, [homePageSliderImages.length, homePageSliderImages])
 
     useEffect( () => {
         let toPreload = []
@@ -57,7 +57,7 @@ export default function KenBurns(props) {
             link.href = each
             head.appendChild(link);
         })
-    }, [])
+    }, [homePageSliderImages])
 
     return transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={{ ...props }}>

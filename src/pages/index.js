@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouteData } from 'react-static'
 import KenBurns from '../components/carousel/kenBurns'
-// import BrowserDetection from 'react-browser-detection';
+import BrowserDetection from 'react-browser-detection';
 import BannerText from '../containers/home/BannerText'
 import NavBar from '../containers/navigation/navbar'
 import instagram from '../images/icons/instagram.png'
@@ -10,17 +10,17 @@ import facebook from '../images/icons/facebook.png'
 import styled from 'styled-components'
 
 
-// const browserHandler = {
-//   chrome: () => {
-//     console.log('This is Chrome')
-//   return <div>Chrome is fantastic!</div>
-//   },
-//   googlebot: () => <div>Hi GoogleBot!</div>,
-//   default: (browser) => {
-//     console.log("This is: ", browser)
-//     return <div>Hi {browser}!</div>
-//   },
-// };
+const browserHandler = {
+  chrome: () => {
+    console.log('This is Chrome')
+  return <div>Chrome is fantastic!</div>
+  },
+  googlebot: () => <div>Hi GoogleBot!</div>,
+  default: (browser) => {
+    console.log("This is: ", browser)
+    return <div>Hi {browser}!</div>
+  },
+};
 
 // Styles
 const Container = styled.div`
@@ -46,21 +46,25 @@ width: 100%;
 export default function Home() {
   const { homePageSliderImages } = useRouteData()
   const [viewHeight, setViewHeight] = useState(0)
-
+  const [browser, setBrowser] = useState(0)
   useEffect( () => {
     setViewHeight(window.innerHeight)
     window.addEventListener('resize', () => {
       setViewHeight(window.innerHeight)
     });
+    setBrowser( 
+      <BrowserDetection>
+        { browserHandler }
+      </BrowserDetection>
+    )
     return () => window.removeEventListener('resize', () => {
       setViewHeight(window.innerHeight)})
+    
   }, [])
 
   return (
     <Container vh={viewHeight} style={{position: "relative", overflowX: "hidden"}}>
-       {/* <BrowserDetection>
-       { browserHandler }
-    </BrowserDetection> */}
+       {browser}
       <NavBar style={{zIndex: "1000"}}/>
       <KenBurns images={ homePageSliderImages } />
       <BannerText />
