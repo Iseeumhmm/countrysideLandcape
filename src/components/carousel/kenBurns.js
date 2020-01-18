@@ -33,9 +33,9 @@ export default function KenBurns(props) {
     const duration = 10000
     const [index, set] = useState(0)
     const transitions = useTransition(slides[index], item => item.id, {
-        from: { opacity: 1 },
+        from: { opacity: 0 },
         enter: { opacity: 1 },
-        leave: { opacity: 1 },
+        leave: { opacity: 0 },
         config: config.molasses,
       }, [])
     useEffect(() => { 
