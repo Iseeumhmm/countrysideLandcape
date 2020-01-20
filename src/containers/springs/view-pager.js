@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
+import { Link } from 'components/Router'
 import clamp from 'lodash-es/clamp'
 import { useSprings, animated } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
@@ -9,15 +10,19 @@ const swipeLeft = require('../../images/icons/swipe-left.png')
 
 const ViewPagerContainer = styled.div`
     position: relative;
-    height: 100%;
+    height: 131%;
     overflow: hidden;
-    cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39,
+    /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, */
     auto;
     & > div {
         position: absolute;
         width: 100%;
         height: 100%;
-        /* will-change: transform; */
+        will-change: transform;
+        h1 { 
+          z-index: 2;
+          top: 0;
+        }
     }
 
     & > div > div {
@@ -26,22 +31,27 @@ const ViewPagerContainer = styled.div`
         background-repeat: no-repeat;
         background-position: center center;
         width: 100%;
-        height: 100%;
+        height: 55%;
         will-change: transform;
-        box-shadow: 0 62.5px 125px -25px rgba(50, 50, 73, 0.5), 0 37.5px 75px -37.5px rgba(0, 0, 0, 0.6);
+        /* box-shadow: 0 62.5px 125px -25px rgba(50, 50, 73, 0.5), 0 37.5px 75px -37.5px rgba(0, 0, 0, 0.6); */
     }
 
+
 `
 
-const GestureContainer = styled.div`
-    border-radius: 10px;
-    background-color: rgba(0,0,0,.5);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
+// const GestureContainer = styled.div`
+//     position: absolute;
+//     top: 5.92rem !important;
+//     z-index: 5;
+//     border-radius: 10px;
+//     background-color: rgba(0,0,0,.5);
+//     width: 100%;
+//     height: 55% !important;
+//     top: 17vw;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// `
 // const swipeGesture = keyframes`
 // 0% { 
 //   transform: translateX(95px); 
@@ -54,27 +64,37 @@ const GestureContainer = styled.div`
 // }
 // `
 
-const Gesture = styled.img`
-    content: url(${swipeLeft});
-    width: 10rem;
-`
+// const Gesture = styled.img`
+//     content: url(${swipeLeft});
+//     width: 10rem;
+// `
 
 
-const pages = [
-  'https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  'https://images.pexels.com/photos/296878/pexels-photo-296878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  'https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  'https://images.pexels.com/photos/351265/pexels-photo-351265.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  'https://images.pexels.com/photos/924675/pexels-photo-924675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-]
+// const pages = [
+//   'https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//   'https://images.pexels.com/photos/296878/pexels-photo-296878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//   'https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//   'https://images.pexels.com/photos/351265/pexels-photo-351265.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+//   'https://images.pexels.com/photos/924675/pexels-photo-924675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+// ]
+const pages = []
+
+const processImages = (images) => {
+  Object.keys(images).forEach( each => {
+    pages.push([
+      each,
+      `${images[each][0]['full1920x1280'].fields.file.url}?fm=jpg&w=800&q=50&fl=progressive`
+    ])
+  })
+}
 
 export default function Viewpager(propsFrom) {
-    const [ wasClicked, setWasClicked ] = useState(null)
-    // const [ divWidth, setDivWidth ] = useState(null)
+    // const [ wasClicked, setWasClicked ] = useState(null)
     const divWidth = propsFrom.width;
-    const clickHandler = () => {
-        setWasClicked(true)
-    }
+    processImages(propsFrom.images)
+    // const clickHandler = () => {
+    //     setWasClicked(true)
+    // }
   
   const index = useRef(0)
   const [props, set] = useSprings(pages.length, i => ({ x: i * divWidth, sc: 1, display: 'block' }))
@@ -89,16 +109,22 @@ export default function Viewpager(propsFrom) {
     })
   })
   const viewPagerItems = props.map(({ x, display, sc }, i) => (
-    <animated.div {...bind()} key={i} style={{ display, transform: x.interpolate(x => `translate3d(${x}px,0,0)`) }}>
-      <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: `url(${pages[i]})` }} />
-    </animated.div>
+      <animated.div {...bind()} key={i} style={{ display, transform: x.interpolate(x => `translate3d(${x}px,0,0)`) }}>
+            <Link key={`${i}_link`} to={`/${pages[i][0]}`}>
+
+          <h1>{pages[i][0]}</h1>
+          {/* {pages[0] ? <GestureContainer onClick={clickHandler} style={{ display: wasClicked ? 'none' : 'flex'}}>
+              <Gesture />
+          </ GestureContainer>: ""} */}
+        </Link>
+
+        <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: `url(${pages[i][1]})` }} />
+
+      </animated.div>
   ))
   return (
     <ViewPagerContainer id="view-pager">
         {viewPagerItems}
-        <GestureContainer onClick={clickHandler} style={{ display: wasClicked ? 'none' : 'flex'}}>
-            <Gesture />
-        </ GestureContainer>
     </ViewPagerContainer>
   )
 }

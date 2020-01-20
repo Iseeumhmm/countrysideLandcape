@@ -143,10 +143,11 @@ export default function Pools() {
                         </p>
                         <a href={catalogue} download>Download Pool Catalogue</a>
                         <ViewStackContainer id="view-pager-container">
-                            <h2>View some of our recent work</h2>
-                            <h1>from pools, width: {divWidth}</h1>
-                            { divWidth ? <ViewStack width={divWidth} /> : ""}
+                            <h2>Some of our past projects</h2>
+                            { divWidth ? <ViewStack width={divWidth} images={contentfulImages}/> : ""}
                         </ViewStackContainer>
+                        <p style={{textAlign: 'center'}}>SWIPE</p>
+
                     </TextContainer>
                 </ContentContainer>
             </BackgroundContainer>

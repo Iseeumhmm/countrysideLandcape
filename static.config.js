@@ -9,13 +9,10 @@ export default {
   getRoutes: async () => {
     const homePageSliderImages = await fetchHomePageImages()
     const contentfulImages = await fetchWorkImages()
-    // let page = (key) => {
-    //   let workImages = {
-    //     copy: `${key}`,
-    //     items: contentfulImages[key]
-    //   }
-    //   return {workImages}
-    // }
+    let page = (key) => {
+      let images = [ key, contentfulImages[key] ]
+      return images
+    }
     return [
       {
         path: '/',
@@ -53,36 +50,36 @@ export default {
           contentfulImages
         })
       },
-      // {
-      //   path: '/pools',
-      //   template: 'src/pages/services.js',
-      //   getData: () => page("pools")
-      // },
-      // {
-      //   path: '/stonework',
-      //   template: 'src/pages/services.js',
-      //   getData: () => page("stonework")
-      // },
-      // {
-      //   path: '/retainingwalls',
-      //   template: 'src/pages/services.js',
-      //   getData: () => page("retainingwalls")
-      // },
-      // {
-      //   path: '/structures',
-      //   template: 'src/pages/services.js',
-      //   getData: () => page("structures")
-      // },
-      // {
-      //   path: '/woodworking',
-      //   template: 'src/pages/services.js',
-      //   getData: () => page("woodworking")
-      // },
-      // {
-      //   path: '/woodworking',
-      //   template: 'src/pages/services.js',
-      //   getData: () => page("woodworking")
-      // },
+      {
+        path: '/pools',
+        template: 'src/pages/services.js',
+        getData: () => page("pools")
+      },
+      {
+        path: '/stonework',
+        template: 'src/pages/services.js',
+        getData: () => page("stonework")
+      },
+      {
+        path: '/retainingwalls',
+        template: 'src/pages/services.js',
+        getData: () => page("retainingwalls")
+      },
+      {
+        path: '/structures',
+        template: 'src/pages/services.js',
+        getData: () => page("structures")
+      },
+      {
+        path: '/woodworking',
+        template: 'src/pages/services.js',
+        getData: () => page("woodworking")
+      },
+      {
+        path: '/woodworking',
+        template: 'src/pages/services.js',
+        getData: () => page("woodworking")
+      },
       // // {
       // //   path: '/pools/single',
       // //   template: 'src/pages/drilldown.js',
