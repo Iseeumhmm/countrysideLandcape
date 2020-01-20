@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'components/Router'
-
+import ViewPager from '../containers/springs/view-pager'
 const logo = require('../images/logos/LargeLogoSlogan.png')
 const vince = require('../images/Headshots/Vince.png')
 
@@ -56,6 +56,7 @@ export default function About() {
         <Link to="/"><Logo /></Link>
       </HeaderContainer>
       <TextContainer>
+        <ViewPager />
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={vince}/>
         </div>

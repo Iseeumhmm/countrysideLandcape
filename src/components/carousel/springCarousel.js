@@ -50,6 +50,7 @@ class Carousel extends React.Component {
     componentDidMount() {
 
         const { imageData: { pools: images } } = this.props
+        console.log('this.props: ', this.props)
         let links = createSrcSet(images)
         var head = document.getElementsByTagName('head')[0];
         links.forEach( each => {

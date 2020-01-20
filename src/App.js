@@ -1,11 +1,12 @@
 import "babel-polyfill";
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 // const backgroundPools = require('./images/backgrounds/poolPage.jpg')
+const contactBackground = require('./images/backgrounds/contact.jpg')
 const og_image = require('./images/backgrounds/og_imageOpt.jpg')
 
 
@@ -76,7 +77,7 @@ const GlobalStyle = createGlobalStyle`
     body {
       /* // font-family: 'Oswald', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; */
 
-
+      box-sizing: border-box;
 
       font-family: 'Alegreya Sans SC', sans-serif;
 
@@ -119,29 +120,29 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <Root>
-       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Helmet>
-        <title>Your London Pool Builder</title>
-            <meta property="og:title" content="Your London Pool Buider" />
-            <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
-            <meta property="og:url" content="http://www.countrysidelandscape.com" />
-            <meta property="og:image" content={og_image} />
-            <meta property="og:image:secure_url" content={og_image} />
-            <meta name="apple-mobile-web-app-capable" content="yes"></meta>
-            {/* <link rel="preload" as="image" href={backgroundPools} imagesizes="100vw" /> */}
-        </Helmet>
-        <div className="content">
-          <React.Suspense fallback={<em>Loading...</em>}>
-            <Router>
-              <Dynamic path="dynamic" />
-              <Routes path="*" />
-            </Router>
-          </React.Suspense>
-        </div>
-      </ThemeProvider>
-    </Root>
+    <HelmetProvider>
+      <Root>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Helmet>
+              <title>Your London Pool Builder</title>
+              <meta property="og:title" content="Your London Pool Buider" />
+              <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
+              <meta property="og:url" content="http://www.countrysidelandscape.com" />
+              <meta property="og:image" content={og_image} />
+              <meta property="og:image:secure_url" content={og_image} />
+          </Helmet>
+          <div className="content">
+            <React.Suspense fallback={<em>Loading...</em>}>
+              <Router>
+                <Dynamic path="dynamic" />
+                <Routes path="*" />
+              </Router>
+            </React.Suspense>
+          </div>
+        </ThemeProvider>
+      </Root>
+    </HelmetProvider>
   )
 }
 

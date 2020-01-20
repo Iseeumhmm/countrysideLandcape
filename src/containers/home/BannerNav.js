@@ -10,7 +10,11 @@ const NavList = styled.ul`
     display: flex;
     justify-content: center;
     li {
-        a { color: ${props => (props.secondary ? "#93D409" : "white")}; }
+        a { 
+            color: white; 
+            text-shadow: 2px 2px 1px  rgba(0,0,0, 0.5);
+
+        }
         font-size: 1.3rem;
         list-style-type:none;
         display: inline-block;
@@ -24,14 +28,15 @@ export default function BannerNav(props) {
         <NavList secondary={props.secondary}>
             <li><Link to="/about">ABOUT US</Link></li>
             <li style={{
-                fontSize: "1.7rem", 
+                fontSize: "2rem", 
                 marginTop: "-.1rem", 
-                color: "#93D409",
                 fontWeight: "bold"
                 }}>
                 <Link 
                     to="/pool-installs"
-                    style={{color: "#93D409"}}
+                    style={{
+                        color: "white"
+                    }}
                     >OUR WORK
                 </Link>
             </li>

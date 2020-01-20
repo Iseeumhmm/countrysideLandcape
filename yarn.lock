@@ -775,10 +775,10 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.3.1":
-  version "7.8.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.0.tgz#8c81711517c56b3d00c6de706b0fb13dc3531549"
-  integrity sha512-Z7ti+HB0puCcLmFE3x90kzaVgbx6TRrYIReaygW6EkBEnJh1ajS4/inhF7CypzWeDV3NFl1AfWj0eMtdihojxw==
+"@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4":
+  version "7.8.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.3.tgz#0811944f73a6c926bb2ad35e918dcc1bfab279f1"
+  integrity sha512-fVHx1rzEmwB130VTkLnxR+HmxcTjGzH12LYQcFFoBwakMd3aOMD4OsRN7tGG/UOYE2ektgFrS8uACAoRk1CY0w==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -4742,7 +4742,7 @@ into-stream@^3.1.0:
     from2 "^2.1.1"
     p-is-promise "^1.1.0"
 
-invariant@^2.2.2, invariant@^2.2.3:
+invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -5326,6 +5326,11 @@ locate-path@^3.0.0:
   dependencies:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
+
+lodash-es@^4.17.15:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -6848,7 +6853,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -7061,10 +7066,21 @@ react-dom@^16.9.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
-react-fast-compare@^2.0.2:
+react-fast-compare@^2.0.2, react-fast-compare@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
+
+react-helmet-async@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.4.tgz#079ef10b7fefcaee6240fefd150711e62463cc97"
+  integrity sha512-KTGHE9sz8N7+fCkZ2a3vzXH9eIkiTNhL2NhKR7XzzQl3WsGlCHh76arauJUIiGdfhjeMp7DY7PkASAmYFXeJYg==
+  dependencies:
+    "@babel/runtime" "^7.3.4"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+    react-fast-compare "^2.0.4"
+    shallowequal "^1.1.0"
 
 react-helmet@^5.2.1:
   version "5.2.1"
@@ -7117,13 +7133,12 @@ react-slideshow-image@^1.3.3:
     prop-types "^15.5.10"
     style-loader "^0.20.2"
 
-react-spring@^8.0.27:
-  version "8.0.27"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
-  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
+react-spring@8.0.19:
+  version "8.0.19"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.19.tgz#62f4f396b4b73fa402838200a1c80374338cb12e"
+  integrity sha512-DjrwjXqqVEitj6e6GqdW5dUp1BoVyeFQhEcXvPfoQxwyIVSJ9smNt8CNjSvoQqRujVllE7XKaJRWSZO/ewd1/A==
   dependencies:
     "@babel/runtime" "^7.3.1"
-    prop-types "^15.5.8"
 
 react-static-plugin-reach-router@^7.2.0:
   version "7.2.3"
@@ -7234,6 +7249,11 @@ react-universal-component@^4.0.0:
     hoist-non-react-statics "^2.2.1"
     prop-types "^15.5.10"
     react-hot-loader "^4.3.6"
+
+react-use-gesture@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-5.0.0.tgz#0c9d089c02ad72beaa93d5dd9dd222104813d34f"
+  integrity sha512-EVTUuj8HTdlKd/T8mUE9zWsVxGkCnwjIiFl6H+PNblxuWvwovgoJfW8vPxb5Ng1Xp+ZJPWxjSj+XGoyKKpz7fg==
 
 react@^16.9.0:
   version "16.12.0"

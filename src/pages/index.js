@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { useRouteData } from 'react-static'
-import KenBurns from '../components/carousel/kenBurns'
+import KenBurns from '../containers/springs/ken-burns/kenBurns'
 import BrowserDetection from 'react-browser-detection';
 import BannerText from '../containers/home/BannerText'
 import NavBar from '../containers/navigation/navbar'
@@ -13,7 +13,7 @@ import styled from 'styled-components'
 const browserHandler = {
   chrome: () => {
     console.log('This is Chrome')
-  return <div>Chrome is fantastic!</div>
+    return <div>Chrome is fantastic!</div>
   },
   googlebot: () => <div>Hi GoogleBot!</div>,
   default: (browser) => {
@@ -30,9 +30,6 @@ const Container = styled.div`
   height: 100vh;
   /* height: calc(${ props => props.vh } * 100); */
   height: ${ props => props.vh}px;
-
-
-  /* height: calc(var(viewHeight, 1vh) * 100); */
   h1 { color: white; }
 `
 
@@ -60,7 +57,7 @@ export default function Home() {
     return () => window.removeEventListener('resize', () => {
       setViewHeight(window.innerHeight)})
     
-  }, [])
+  }, [setViewHeight])
 
   return (
     <Container vh={viewHeight} style={{position: "relative", overflowX: "hidden"}}>

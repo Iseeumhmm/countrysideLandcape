@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import NavBar from '../containers/navigation/navbar'
 import SpringCarousel from '../components/carousel/springCarousel'
+import CardStack from '../containers/springs/card-stack'
+import ViewStack from '../containers/springs/view-pager'
 const background = require('../images/backgrounds/poolPage.jpg')
 const backgroundLarge = require('../images/backgrounds/poolPage_2360.jpg')
 
@@ -100,9 +102,24 @@ const ContentContainer = styled.div`
         /* width: 55vw; */
 }
 `
+const ViewStackContainer = styled.div`
+    position: relative;
+    width: 100%;
+    height: 91vw;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 7px;
+    @media( min-width: 675px ){
+        height: 66vw;
+    }
+    @media( min-width: 950px ){
+        height: 60rem;
+    }
+`
 
-const pools = () => {
+export default function Pools() {
     const { contentfulImages } = useRouteData()
+
     return (
         <PageContainer style={{position: "relative", overflowX: "hidden"}}>
             <BackgroundContainer >
@@ -110,17 +127,20 @@ const pools = () => {
                 <ContentContainer>
                     <Link to="/"><Logo/></Link>
                     <TextContainer>
+                    {/* <CardStack /> */}
+                       
                         <h1>Your London Pool Builder</h1>
                         <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features in and around London Ontario. We are a trusted landscape company with the experience, knowledge and staff to create your landscape dream safely, efficiently and affordably.
                         </p>
                         <a href={catalogue} download>Download Pool Catalogue</a>
-                        <h2>View some of our recent work</h2>
-                        <SpringCarousel imageData={contentfulImages}/>
+                        {/* <SpringCarousel imageData={contentfulImages}/> */}
+                        <ViewStackContainer>
+                            <h2>View some of our recent work</h2>
+                            <ViewStack/>
+                        </ViewStackContainer>
                     </TextContainer>
                 </ContentContainer>
             </BackgroundContainer>
         </ PageContainer>
     )
 }
-
-export default pools

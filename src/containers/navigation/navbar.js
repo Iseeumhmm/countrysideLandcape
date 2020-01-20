@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'components/Router'
 
-
-
-
 const StyledMenu = styled.nav`
   position: absolute;
   display: flex;
@@ -53,10 +50,10 @@ const StyledMenu = styled.nav`
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
-        <Link to="/" onClick={() => setOpen(!open)}>Home</Link>
-        <Link to="/pool-installs" onClick={() => setOpen(!open)}>Our Work</Link>
-        <Link to="/about" onClick={() => setOpen(!open)}>About Us</Link>
-        <Link to="/contact" onClick={() => setOpen(!open)}>Get Started</Link>
+        <Link to="/" onClick={() => this.setOpen(!open)}>Home</Link>
+        <Link to="/pool-installs" onClick={() => this.setOpen(!open)}>Our Work</Link>
+        <Link to="/about">About Us</Link>
+        <Link to="/contact" onClick={() => this.setOpen(!open)}>Get Started</Link>
     </StyledMenu>
   )
 }
@@ -85,7 +82,7 @@ const StyledBurger = styled.button`
     width: 2rem;
     height: 0.25rem;
     background: ${({ open }) => open ? '#0D0C1D' : '#EFFFFA'};
-    background-color: ${ props => props.black ? "black" : "white"}
+    background-color: ${ props => props.black ? "black" : "white"};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
