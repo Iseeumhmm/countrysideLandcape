@@ -105,7 +105,7 @@ const ContentContainer = styled.div`
 const ViewStackContainer = styled.div`
     position: relative;
     width: 100%;
-    height: 91vw;
+    height: 95vw;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 7px;

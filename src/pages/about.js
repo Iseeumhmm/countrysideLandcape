@@ -19,8 +19,8 @@ const PageContainer = styled.div`
   max-width: 100%;
   overflow-x: hidden;
 
-  @media(min-width: 883px) {
-    width: 65%;
+  @media(min-width: 992px) {
+    background-size: cover;
   }
 `
 const HeaderContainer = styled.div`
