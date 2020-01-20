@@ -85,13 +85,14 @@ const processImages = (images) => {
       each,
       `${images[each][0]['full1920x1280'].fields.file.url}?fm=jpg&w=800&q=50&fl=progressive`
     ])
+    
   })
 }
 
 export default function Viewpager(propsFrom) {
     // const [ wasClicked, setWasClicked ] = useState(null)
     const divWidth = propsFrom.width;
-    processImages(propsFrom.images)
+    if (propsFrom.images) {processImages(propsFrom.images)}
     // const clickHandler = () => {
     //     setWasClicked(true)
     // }

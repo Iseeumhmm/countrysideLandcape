@@ -3,11 +3,11 @@ import { useRouteData } from 'react-static'
 
 
 const Services = () => {
-    const images = useRouteData()
+    const pageImages = useRouteData()
     return (
     <div style={{textAlign: 'center'}}>
-        <h1>{images[0]}</h1>
-        <p style={{  textTransform: 'capitalize' }}>{images[0]} Gallery coming soon</p>
+        <h1>{pageImages[0]}</h1>
+        <p style={{  textTransform: 'capitalize' }}>{pageImages[0]} Gallery coming soon</p>
     </div>
     )
 

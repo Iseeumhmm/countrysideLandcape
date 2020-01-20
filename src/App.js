@@ -81,7 +81,6 @@ const GlobalStyle = createGlobalStyle`
 
       font-family: 'Alegreya Sans SC', sans-serif;
 
-
       font-weight: 300;
       line-height: 2.6rem;
       letter-spacing: .1rem;

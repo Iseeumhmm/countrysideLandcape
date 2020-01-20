@@ -119,6 +119,7 @@ const ViewStackContainer = styled.div`
 
 export default function Pools() {
     const { contentfulImages } = useRouteData()
+    console.log('contentfulImages: ', contentfulImages)
     const [ divWidth, setDivWidth ] = useState(null)
     useEffect(() => {
         setDivWidth(document.getElementById("view-pager-container").offsetWidth)

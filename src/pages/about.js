@@ -1,15 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'components/Router'
-import ViewPager from '../containers/springs/view-pager'
-const logo = require('../images/logos/LargeLogoSlogan.png')
+import NavBar from '../containers/navigation/navbar'
+const background = require('../images/backgrounds/about.jpg')
+const logo = require('../images/logos/LargeLogo.png')
+const john = require('../images/Headshots/John.png')
 const vince = require('../images/Headshots/Vince.png')
 
 // Styles
 const PageContainer = styled.div`
-  width: 85%;
-  height: 100%;
-  margin: auto;
+  position: relative;
+  background-image: url(${background});
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #433A31;
+  color: white;
+  max-width: 100%;
+  overflow-x: hidden;
+
   @media(min-width: 883px) {
     width: 65%;
   }
@@ -23,15 +32,19 @@ const HeaderContainer = styled.div`
 `
 const Logo = styled.div`
   width: 23rem;
-  min-height: 7rem;
+  min-height: 8rem;
   background-image: url(${logo});
   background-size: cover;
   background-position: center center;
 `
 const TextContainer = styled.div`
-  padding: 8rem 0 0;
+  width: 95%;
+  margin: auto;
+  padding: 4rem 0 0;
   h1 {
+    color: white;
     text-align: center;
+    padding: 2rem 0 2rem; 
   }
   p {
     padding-top: 2rem;
@@ -39,28 +52,42 @@ const TextContainer = styled.div`
   b {
     font-weight: 700;
   }
+  &:first-child {
+    margin-top: 30rem;
+  }
   &:last-child {
     padding-bottom: 8rem;
   }
 `
 const Photo = styled.img`
+  box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.85);
+  border-radius: 10rem;
   object-fit: cover;
   width: 15rem;
-  margin: auto;
+  margin:  4rem auto 0;
 `
 
 export default function About() {
   return (
     <PageContainer>
       <HeaderContainer>
+      <NavBar style={{zIndex: "1000"}}/>
+
         <Link to="/"><Logo /></Link>
       </HeaderContainer>
       <TextContainer>
-        <ViewPager />
+      <h1 style={{padding: "18rem 0 0", margin: "0"}}>Our Story</h1>
+        <div style={{width: '100%', textAlign: 'center'}}>
+          <Photo src={john}/>
+        </div>
+        <p><b>Countryside Landscape</b> was established in the spring of 2008 by owner John Wall on a small scale performing interlocking stone installations. The business saw rapid expansion to include excavations, demolitions, carpentry, concrete work, wood structures and pavilions as a result of high quality workmanship.
+        Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long. He brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa.
+        </p>
+      </TextContainer>
+      <TextContainer>
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={vince}/>
         </div>
-        <h1>Our Story</h1>
         <p><b>Countryside Landscape</b> was established in the spring of 2008 by owner John Wall on a small scale performing interlocking stone installations. The business saw rapid expansion to include excavations, demolitions, carpentry, concrete work, wood structures and pavilions as a result of high quality workmanship.
         Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long. He brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa.
         </p>

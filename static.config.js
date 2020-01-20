@@ -10,8 +10,8 @@ export default {
     const homePageSliderImages = await fetchHomePageImages()
     const contentfulImages = await fetchWorkImages()
     let page = (key) => {
-      let images = [ key, contentfulImages[key] ]
-      return images
+      let pageImages = [ key, contentfulImages[key] ]
+      return pageImages
     }
     return [
       {

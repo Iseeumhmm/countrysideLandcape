@@ -47,20 +47,20 @@ const StyledMenu = styled.nav`
   }
 `
 
-const Menu = ({ open }) => {
+const Menu = ({ open, setOpen }) => {
   return (
     <StyledMenu open={open}>
-        <Link to="/" onClick={() => this.setOpen(!open)}>Home</Link>
-        <Link to="/pool-installs" onClick={() => this.setOpen(!open)}>Our Work</Link>
+        <Link to="/" onClick={() => setOpen(!open)}>Home</Link>
+        <Link to="/pool-installs" onClick={() => setOpen(!open)}>Our Work</Link>
         <Link to="/about">About Us</Link>
-        <Link to="/contact" onClick={() => this.setOpen(!open)}>Get Started</Link>
+        <Link to="/contact" onClick={() => setOpen(!open)}>Get Started</Link>
     </StyledMenu>
   )
 }
 
 const StyledBurger = styled.button`
   position: absolute;
-  top: 5%;
+  top: 2rem;
   right: 2rem;
   display: flex;
   flex-direction: column;
@@ -81,8 +81,8 @@ const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ open }) => open ? '#0D0C1D' : '#EFFFFA'};
-    background-color: ${ props => props.black ? "black" : "white"};
+    /* background: ${({ open }) => open ? '#0D0C1D' : '#EFFFFA'}; */
+    background: ${({ black, open }) => black ? "black" : open ? "black" : "white"};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
