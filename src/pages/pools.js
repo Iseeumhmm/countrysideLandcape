@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { Link } from 'components/Router'
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import NavBar from '../containers/navigation/navbar'
-import SpringCarousel from '../components/carousel/springCarousel'
+// import SpringCarousel from '../components/carousel/springCarousel'
 import CardStack from '../containers/springs/card-stack'
 import ViewStack from '../containers/springs/view-pager'
 const background = require('../images/backgrounds/poolPage.jpg')
@@ -119,7 +119,18 @@ const ViewStackContainer = styled.div`
 
 export default function Pools() {
     const { contentfulImages } = useRouteData()
+    const [ divWidth, setDivWidth ] = useState(null)
+    useEffect(() => {
+        setDivWidth(document.getElementById("view-pager-container").offsetWidth)
+        window.addEventListener('resize', () => {
+        setDivWidth(document.getElementById("view-pager-container").offsetWidth)
+        });
 
+        return () => window.removeEventListener('resize', () => {
+        setDivWidth(document.getElementById("view-pager-container").offsetWidth)
+        })
+
+    }, [divWidth])
     return (
         <PageContainer style={{position: "relative", overflowX: "hidden"}}>
             <BackgroundContainer >
@@ -127,16 +138,14 @@ export default function Pools() {
                 <ContentContainer>
                     <Link to="/"><Logo/></Link>
                     <TextContainer>
-                    {/* <CardStack /> */}
-                       
                         <h1>Your London Pool Builder</h1>
                         <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features in and around London Ontario. We are a trusted landscape company with the experience, knowledge and staff to create your landscape dream safely, efficiently and affordably.
                         </p>
                         <a href={catalogue} download>Download Pool Catalogue</a>
-                        {/* <SpringCarousel imageData={contentfulImages}/> */}
-                        <ViewStackContainer>
+                        <ViewStackContainer id="view-pager-container">
                             <h2>View some of our recent work</h2>
-                            <ViewStack/>
+                            <h1>from pools, width: {divWidth}</h1>
+                            { divWidth ? <ViewStack width={divWidth} /> : ""}
                         </ViewStackContainer>
                     </TextContainer>
                 </ContentContainer>

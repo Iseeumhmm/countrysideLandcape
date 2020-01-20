@@ -17,7 +17,7 @@ const ViewPagerContainer = styled.div`
         position: absolute;
         width: 100%;
         height: 100%;
-        will-change: transform;
+        /* will-change: transform; */
     }
 
     & > div > div {
@@ -32,11 +32,7 @@ const ViewPagerContainer = styled.div`
     }
 
 `
-const rotateGesture = keyframes`
-0% { transform: translateX(95px); }
-50% { transform: translateX(-95px); }
-100% { transform:  translateX(95px); }
-`
+
 const GestureContainer = styled.div`
     border-radius: 10px;
     background-color: rgba(0,0,0,.5);
@@ -46,11 +42,21 @@ const GestureContainer = styled.div`
     align-items: center;
     justify-content: center;
 `
+// const swipeGesture = keyframes`
+// 0% { 
+//   transform: translateX(95px); 
+// }
+// 50% { 
+//   transform: translateX(-95px); 
+// }
+// 100% { 
+//   transform:  translateX(95px); 
+// }
+// `
+
 const Gesture = styled.img`
     content: url(${swipeLeft});
     width: 10rem;
-    animation: ${rotateGesture} 3s ease-out infinite;
-
 `
 
 
@@ -62,17 +68,13 @@ const pages = [
   'https://images.pexels.com/photos/924675/pexels-photo-924675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
 ]
 
-export default function Viewpager() {
+export default function Viewpager(propsFrom) {
     const [ wasClicked, setWasClicked ] = useState(null)
-    const [ divWidth, setDivWidth ] = useState(null)
-
+    // const [ divWidth, setDivWidth ] = useState(null)
+    const divWidth = propsFrom.width;
     const clickHandler = () => {
         setWasClicked(true)
     }
-
-    useEffect(() => {
-      setDivWidth(document.getElementById("view-pager").offsetWidth)
-    }, [])
   
   const index = useRef(0)
   const [props, set] = useSprings(pages.length, i => ({ x: i * divWidth, sc: 1, display: 'block' }))
