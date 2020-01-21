@@ -81,9 +81,10 @@ export default function About() {
         <Link to="/"><Logo /></Link>
       </HeaderContainer>
       <TextContainer>
-      <h1 style={{margin: "0"}}>Our Story</h1>
+      <h1 style={{margin: "0", fontSize: "4rem"}}>Our Story</h1>
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={john}/>
+          <h2>John Wall</h2>
         </div>
         <p><b>Countryside Landscape</b> was established in the spring of 2008 by owner John Wall on a small scale performing interlocking stone installations. The business saw rapid expansion to include excavations, demolitions, carpentry, concrete work, wood structures and pavilions as a result of high quality workmanship.
         Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long. He brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa.
@@ -92,6 +93,7 @@ export default function About() {
       <TextContainer>
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={vince}/>
+          <h2>Vince Long</h2>
         </div>
         <p><b>Countryside Landscape</b> was established in the spring of 2008 by owner John Wall on a small scale performing interlocking stone installations. The business saw rapid expansion to include excavations, demolitions, carpentry, concrete work, wood structures and pavilions as a result of high quality workmanship.
         Today we are a trusted landscape company with the experience, knowledge and staff to create your landscape dream or property improvement safely, efficiently and affordably. Our team has grown to include a strong, friendly and professional staff including most recently our own landscape designer Vincent Long. He brings years of passionate design experience working for a private residential landscape architecture firm in Ottawa.

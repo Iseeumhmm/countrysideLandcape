@@ -1,10 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'components/Router'
 import clamp from 'lodash-es/clamp'
 import { useSprings, animated } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
-import styled, { keyframes } from 'styled-components'
-const swipeLeft = require('../../images/icons/swipe-left.png')
+import styled from 'styled-components'
 
 // import './style.css'
 
@@ -26,6 +25,7 @@ const ViewPagerContainer = styled.div`
         height: 100%;
         will-change: transform;
         h1 { 
+          text-decoration: underline;
           z-index: 2;
           top: 0;
         }
@@ -46,44 +46,6 @@ const ViewPagerContainer = styled.div`
 
 `
 
-// const GestureContainer = styled.div`
-//     position: absolute;
-//     top: 5.92rem !important;
-//     z-index: 5;
-//     border-radius: 10px;
-//     background-color: rgba(0,0,0,.5);
-//     width: 100%;
-//     height: 55% !important;
-//     top: 17vw;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-// `
-// const swipeGesture = keyframes`
-// 0% { 
-//   transform: translateX(95px); 
-// }
-// 50% { 
-//   transform: translateX(-95px); 
-// }
-// 100% { 
-//   transform:  translateX(95px); 
-// }
-// `
-
-// const Gesture = styled.img`
-//     content: url(${swipeLeft});
-//     width: 10rem;
-// `
-
-
-// const pages = [
-//   'https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-//   'https://images.pexels.com/photos/296878/pexels-photo-296878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-//   'https://images.pexels.com/photos/1509428/pexels-photo-1509428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-//   'https://images.pexels.com/photos/351265/pexels-photo-351265.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-//   'https://images.pexels.com/photos/924675/pexels-photo-924675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-// ]
 const pages = []
 
 const processImages = (images) => {
@@ -121,9 +83,6 @@ export default function Viewpager(propsFrom) {
             <Link key={`${i}_link`} to={`/${pages[i][0]}`}>
 
           <h1>{pages[i][0]}</h1>
-          {/* {pages[0] ? <GestureContainer onClick={clickHandler} style={{ display: wasClicked ? 'none' : 'flex'}}>
-              <Gesture />
-          </ GestureContainer>: ""} */}
         </Link>
 
         <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: `url(${pages[i][1]})` }} />

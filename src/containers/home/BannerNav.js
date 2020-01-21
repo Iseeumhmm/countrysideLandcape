@@ -35,7 +35,7 @@ export default function BannerNav(props) {
                 <Link 
                     to="/pool-installs"
                     style={{
-                        color: "white"
+                        color: "#93D40A"
                     }}
                     >OUR WORK
                 </Link>

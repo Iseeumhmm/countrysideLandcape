@@ -1,11 +1,12 @@
 import React, { useEffect, useState} from 'react'
 import { Link } from 'components/Router'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useRouteData } from 'react-static'
 import NavBar from '../containers/navigation/navbar'
 import ViewStack from '../containers/springs/view-pager'
 const background = require('../images/backgrounds/poolPage.jpg')
 const backgroundLarge = require('../images/backgrounds/poolPage_2360.jpg')
+const swipe = require('../images/icons/swipe-left.png')
 
 const logo = require('../images/logos/LargeLogoBlack.png')
 const catalogue = require('../../public/Leisure Pools Consumer Brochure 2019-0424.pdf')
@@ -57,6 +58,11 @@ const Logo = styled.div`
         min-height: 9rem;
     }
 `
+const swipeGesture = keyframes`
+0%      { transform: translateX(50px) }
+50%     { transform: translateX(-50px) }
+100%    { transform: translateX(50px) }
+`
 const TextContainer = styled.div`
     width: 95%;
     margin: auto;
@@ -71,6 +77,10 @@ const TextContainer = styled.div`
          padding-top: 4rem;
      }
      p { padding-bottom: 4rem; }
+     img { 
+         width: 5rem;
+         animation: ${swipeGesture} 2s ease-in-out infinite;
+    }
     font-size: 1.25rem;
     padding-top: 68vw;
     @media( min-width: 950px ) {
@@ -118,15 +128,15 @@ const ViewStackContainer = styled.div`
 export default function Pools() {
     const { contentfulImages } = useRouteData()
     const [ divWidth, setDivWidth ] = useState(null)
+    const getWidth = (ele) => {
+        setDivWidth(ele)
+    }
     useEffect(() => {
-        setDivWidth(document.getElementById("view-pager-container").offsetWidth)
-        window.addEventListener('resize', () => {
-        setDivWidth(document.getElementById("view-pager-container").offsetWidth)
-        });
+        let element = document.getElementById("view-pager-container").offsetWidth
+        getWidth(element)
+        window.addEventListener( 'resize', getWidth(element) );
 
-        return () => window.removeEventListener('resize', () => {
-        setDivWidth(document.getElementById("view-pager-container").offsetWidth)
-        })
+        return () => window.removeEventListener('resize', getWidth )
 
     }, [divWidth])
     return (
@@ -144,7 +154,7 @@ export default function Pools() {
                             <h2>View our past projects</h2>
                             { divWidth ? <ViewStack width={divWidth} images={contentfulImages}/> : ""}
                         </ViewStackContainer>
-                        <p style={{textAlign: 'center'}}>SWIPE</p>
+                        <img src={swipe} alt="swipe gesture"></img>
                     </TextContainer>
                 </ContentContainer>
             </BackgroundContainer>

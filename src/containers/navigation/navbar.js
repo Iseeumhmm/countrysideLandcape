@@ -53,7 +53,7 @@ const Menu = ({ open, setOpen }) => {
         <Link to="/" onClick={() => setOpen(!open)}>Home</Link>
         <Link to="/pool-installs" onClick={() => setOpen(!open)}>Our Work</Link>
         <Link to="/about">About Us</Link>
-        <Link to="/contact" onClick={() => setOpen(!open)}>Get Started</Link>
+        <Link to="/contact" onClick={() => setOpen(!open)}>Contact Us</Link>
     </StyledMenu>
   )
 }
