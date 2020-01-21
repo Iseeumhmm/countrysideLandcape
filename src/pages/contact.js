@@ -9,8 +9,8 @@ const Background = require('../images/backgrounds/contact.jpg')
 // Styles
 
 const PageContainer = styled.div`
-  position: relative;
-  overflow-x: hidden;
+  position: fixed;
+  overflow: hidden;
   width: 100%;
   height: 100vh;
   height: ${ props => props.vh}px;
@@ -40,14 +40,21 @@ const TextContainer = styled.div`
   @media(min-width: 635px){
     top: 60%;
   }
+  @media(min-width: 1575px){
+    top: 66%;
+    p { margin-bottom: 1rem; }
+  }
 `
 const Logo = styled.div`
-  margin:  5rem auto 0;
+  margin:  0 auto 5rem;
   width: 23rem;
   min-height: 8rem;
   background-image: url(${logo});
   background-size: cover;
   background-position: center center;
+  @media(min-width: 1575px){
+    margin-bottom: 2rem;
+  }
 `
 
 const ContactButton = styled.button`
@@ -61,6 +68,9 @@ const ContactButton = styled.button`
   z-index: 200;
   width: 11rem;
   height: 4rem;
+  @media(min-width: 1575px){
+    background-color: #93D30A;
+  }
 `
 
 const Address = styled.div`
@@ -69,6 +79,10 @@ const Address = styled.div`
   width: 100%; 
   text-align: center; 
   h2 { margin-bottom: 0; }
+  @media(min-width: 1575px){
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
 `
 
 const FooterTextContainer = styled.div`
@@ -84,6 +98,9 @@ const FooterTextContainer = styled.div`
   @media(min-width: 635px){
     left: 50%;
     transform: translateX(-50%);
+  }
+  @media(min-width: 1575px){
+   h2 { margin: 0 }
   }
 `
 export default function Contact() {
@@ -111,11 +128,12 @@ export default function Contact() {
           <NavBar black style={{zIndex: "1000"}}/>
           <BackgroundContainer />
           <TextContainer>
-            <p>Make it yours</p>
-            <ContactButton className="artibot-button-expand">QUOTE</ContactButton>
             <Link to="/">
               <Logo vh={viewHeight}/>
             </Link>
+            <p>Make it yours</p>
+            <ContactButton className="artibot-button-expand">QUOTE</ContactButton>
+           
             <Address>
               <h2 style={{ fontSize: "2.5rem" }}>505 Talbot St. E. Aylmer, ON</h2>
             </Address>

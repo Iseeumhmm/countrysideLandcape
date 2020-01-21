@@ -10,10 +10,16 @@ const swipeLeft = require('../../images/icons/swipe-left.png')
 
 const ViewPagerContainer = styled.div`
     position: relative;
-    height: 131%;
+    height: 30rem;
     overflow: hidden;
-    /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, */
-    auto;
+    /* cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39, 
+    auto; */
+    @media(min-width: 418px) {
+      height: 72vw;
+    }
+    @media(min-width: 675px) {
+      height: 78vw;
+    }
     & > div {
         position: absolute;
         width: 100%;
@@ -31,7 +37,8 @@ const ViewPagerContainer = styled.div`
         background-repeat: no-repeat;
         background-position: center center;
         width: 100%;
-        height: 55%;
+        /* height: 24rem; */
+        padding-top: 64%;
         will-change: transform;
         /* box-shadow: 0 62.5px 125px -25px rgba(50, 50, 73, 0.5), 0 37.5px 75px -37.5px rgba(0, 0, 0, 0.6); */
     }
@@ -91,7 +98,7 @@ const processImages = (images) => {
 
 export default function Viewpager(propsFrom) {
     // const [ wasClicked, setWasClicked ] = useState(null)
-    const divWidth = propsFrom.width;
+    const divWidth = propsFrom.width + 5;
     if (propsFrom.images) {processImages(propsFrom.images)}
     // const clickHandler = () => {
     //     setWasClicked(true)

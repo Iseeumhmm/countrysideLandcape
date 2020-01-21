@@ -18,7 +18,9 @@ const PageContainer = styled.div`
   color: white;
   max-width: 100%;
   overflow-x: hidden;
-
+  & > div:nth-child(2) > h1 {
+    padding: calc(64vw * 1.25) 0 0;
+  }
   @media(min-width: 992px) {
     background-size: cover;
   }
@@ -58,12 +60,15 @@ const TextContainer = styled.div`
   &:last-child {
     padding-bottom: 8rem;
   }
+  @media(min-width: 775px){
+    width: 65%;
+  }
 `
 const Photo = styled.img`
   box-shadow: 0px 0px 75px 0px rgba(0,0,0,0.85);
-  border-radius: 10rem;
+  border-radius: 15rem;
   object-fit: cover;
-  width: 15rem;
+  width: 25rem;
   margin:  4rem auto 0;
 `
 
@@ -76,7 +81,7 @@ export default function About() {
         <Link to="/"><Logo /></Link>
       </HeaderContainer>
       <TextContainer>
-      <h1 style={{padding: "18rem 0 0", margin: "0"}}>Our Story</h1>
+      <h1 style={{margin: "0"}}>Our Story</h1>
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={john}/>
         </div>

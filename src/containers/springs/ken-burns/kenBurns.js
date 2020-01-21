@@ -43,21 +43,21 @@ export default function KenBurns(props) {
         return () => clearInterval(interval)
     }, [homePageSliderImages.length, homePageSliderImages])
 
-    useEffect( () => {
-        let toPreload = []
-        homePageSliderImages.forEach( link => {
-            toPreload.push([ `${link}?w=1920&q=40&fl=progressive` ])
-        })
-        // console.log(toPreload)
-        var head = document.getElementsByTagName('head')[0];
-        toPreload.forEach( each => {
-            var link = document.createElement('link');
-            link.rel = 'preload'
-            link.as = 'image'
-            link.href = each
-            head.appendChild(link);
-        })
-    }, [homePageSliderImages])
+    // useEffect( () => {
+    //     let toPreload = []
+    //     homePageSliderImages.forEach( link => {
+    //         toPreload.push([ `${link}?w=1920&q=40&fl=progressive` ])
+    //     })
+    //     // console.log(toPreload)
+    //     var head = document.getElementsByTagName('head')[0];
+    //     toPreload.forEach( each => {
+    //         var link = document.createElement('link');
+    //         link.rel = 'preload'
+    //         link.as = 'image'
+    //         link.href = each
+    //         head.appendChild(link);
+    //     })
+    // }, [homePageSliderImages])
 
     return transitions.map(({ item, props, key }) => (
         <animated.div key={key} style={{ ...props }}>

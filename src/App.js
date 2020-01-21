@@ -6,7 +6,7 @@ import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 // const backgroundPools = require('./images/backgrounds/poolPage.jpg')
-const contactBackground = require('./images/backgrounds/contact.jpg')
+// const contactBackground = require('./images/backgrounds/contact.jpg')
 const og_image = require('./images/backgrounds/og_imageOpt.jpg')
 
 
@@ -73,12 +73,11 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
     font-size: 62.5%;
+    
   
     body {
       /* // font-family: 'Oswald', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; */
-
       box-sizing: border-box;
-
       font-family: 'Alegreya Sans SC', sans-serif;
 
       font-weight: 300;

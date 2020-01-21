@@ -3,8 +3,6 @@ import { Link } from 'components/Router'
 import styled from 'styled-components'
 import { useRouteData } from 'react-static'
 import NavBar from '../containers/navigation/navbar'
-// import SpringCarousel from '../components/carousel/springCarousel'
-import CardStack from '../containers/springs/card-stack'
 import ViewStack from '../containers/springs/view-pager'
 const background = require('../images/backgrounds/poolPage.jpg')
 const backgroundLarge = require('../images/backgrounds/poolPage_2360.jpg')
@@ -42,21 +40,21 @@ const Logo = styled.div`
     background-position: center center;
     z-index: 50;
     @media( min-width: 673px ) {
-        top: 51vw;
+        top: 44vw;
     }
     @media( min-width: 771px ) {
         width: 33rem;
-        min-height: 10rem;
+        min-height: 12rem;
     }
     @media( min-width: 950px ) {
-        top: 38vw;
+        top: 34vw;
         width: 27vw;
-        min-height: 9vw;
+        min-height: 10vw;
     }
     @media( min-width: 1575px ) {
-        top: 42rem;
+        top: 34vw;
         width: 25rem;
-        min-height: 8rem;
+        min-height: 9rem;
     }
 `
 const TextContainer = styled.div`
@@ -81,7 +79,7 @@ const TextContainer = styled.div`
         margin: auto;
     }
     @media( min-width: 1575px ) {
-        padding-top: 50rem;
+        padding-top: 47vw;
         width: 69%;
     }
 `
@@ -105,12 +103,12 @@ const ContentContainer = styled.div`
 const ViewStackContainer = styled.div`
     position: relative;
     width: 100%;
-    height: 95vw;
+    height: auto;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 7px;
     @media( min-width: 675px ){
-        height: 66vw;
+        height: 78vw;
     }
     @media( min-width: 950px ){
         height: 60rem;
@@ -119,7 +117,6 @@ const ViewStackContainer = styled.div`
 
 export default function Pools() {
     const { contentfulImages } = useRouteData()
-    console.log('contentfulImages: ', contentfulImages)
     const [ divWidth, setDivWidth ] = useState(null)
     useEffect(() => {
         setDivWidth(document.getElementById("view-pager-container").offsetWidth)
@@ -144,11 +141,10 @@ export default function Pools() {
                         </p>
                         <a href={catalogue} download>Download Pool Catalogue</a>
                         <ViewStackContainer id="view-pager-container">
-                            <h2>Some of our past projects</h2>
+                            <h2>View our past projects</h2>
                             { divWidth ? <ViewStack width={divWidth} images={contentfulImages}/> : ""}
                         </ViewStackContainer>
                         <p style={{textAlign: 'center'}}>SWIPE</p>
-
                     </TextContainer>
                 </ContentContainer>
             </BackgroundContainer>
