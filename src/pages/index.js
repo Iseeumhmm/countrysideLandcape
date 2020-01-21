@@ -10,9 +10,6 @@ import instagram from '../images/icons/instagram.png'
 import facebook from '../images/icons/facebook.png'
 import styled, {keyframes} from 'styled-components'
 
-
-
-
 // Styles
 
 const fadeIn = keyframes`

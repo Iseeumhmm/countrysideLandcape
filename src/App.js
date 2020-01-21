@@ -1,7 +1,7 @@
 import "babel-polyfill";
 import React from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import { Root, Routes, addPrefetchExcludes } from 'react-static'
+import { Root, Routes, addPrefetchExcludes, Head } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
@@ -121,32 +121,32 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <HelmetProvider>
-      <Root>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Helmet>
-              <title>Your London Pool Builder</title>
-              <meta property="og:locale" content="en_CA" />
-              <meta property="og:title" content="Your London Pool Buider" />
-              <meta property="og:site_name" content="Countryside Landscape and Pools" />
-              <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
-              <meta property="og:url" content="http://www.countrysidelandscape.com" />
-              <meta property="og:image:secure_url" content={og_image} />
-               <meta property="og:image" content={og_image} />
-
-          </Helmet>
-          <div className="content">
-            <React.Suspense fallback={<em>Loading...</em>}>
-              <Router>
-                <Dynamic path="dynamic" />
-                <Routes path="*" />
-              </Router>
-            </React.Suspense>
-          </div>
-        </ThemeProvider>
-      </Root>
-    </HelmetProvider>
+    <Root>
+      <Head>
+          <meta property="og:locale" content="en_CA" />
+          <meta property="og:title" content="Your London Pool Buider" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Countryside Landscape and Pools" />
+          <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
+          <meta property="og:url" content="http://www.countrysidelandscape.com" />
+          <meta property="og:image:secure_url" content={og_image} />
+          <meta property="og:image" content={og_image} />
+          <title>Your London Pool Builder</title>
+      </Head>
+      <HelmetProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <div className="content">
+          <React.Suspense fallback={<em>Loading...</em>}>
+            <Router>
+              <Dynamic path="dynamic" />
+              <Routes path="*" />
+            </Router>
+          </React.Suspense>
+        </div>
+      </ThemeProvider>
+      </HelmetProvider>
+    </Root>
   )
 }
 

@@ -20,9 +20,7 @@ if (typeof document !== 'undefined') {
   const render = Comp => {
     renderMethod(
       <AppContainer>
-        <HelmetProvider>
           <Comp />
-        </HelmetProvider>
       </AppContainer>,
       target
     )
