@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Link } from 'components/Router'
 import NavBar from '../containers/navigation/navbar'
 import { useRouteData } from 'react-static'
+import { Helmet } from 'react-helmet-async'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade';
 const logo = require('../images/logos/LargeLogoSplash.png')
@@ -42,21 +43,7 @@ const HeaderContainer = styled.div`
 
 const Services = () => {
     const pageImages = useRouteData()
-    if ( pageImages ) {
-        let toPreload = []
-        pageImages[1].forEach( link => {
-            toPreload.push([ `${link.full1920x1280.fields.file.url}?w=1920&q=40&fl=progressive` ])
-        })
-        // console.log(toPreload)
-        var head = document.getElementsByTagName('head')[0];
-        toPreload.forEach( each => {
-            var link = document.createElement('link');
-            link.rel = 'preload'
-            link.as = 'image'
-            link.href = each
-            head.appendChild(link);
-        })
-    }
+    
     const [images, setImages] = useState(null)
     let imageArray = []
     useEffect(() => {
@@ -74,6 +61,11 @@ const Services = () => {
 
     return (
         <PageContainer>
+            <Helmet>
+                {images ? images.map( (each, i) => {
+                    return <link key={`${i}_link`} rel="preload" as="image" href={each.image}/>
+                }) : null}
+            </Helmet>
             <HeaderContainer id="header">
                 <NavBar black style={{zIndex: "1000"}}/>
                 <Link to="/"><Logo /></Link>
