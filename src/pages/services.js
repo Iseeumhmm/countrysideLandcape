@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'components/Router'
 import NavBar from '../containers/navigation/navbar'
-import { useRouteData } from 'react-static'
-import { Helmet } from 'react-helmet-async'
+import { useRouteData, Head } from 'react-static'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade';
 const logo = require('../images/logos/LargeLogoSplash.png')
@@ -61,11 +60,11 @@ const Services = () => {
 
     return (
         <PageContainer>
-            <Helmet>
+            <Head>
                 {images ? images.map( (each, i) => {
                     return <link key={`${i}_link`} rel="preload" as="image" href={each.image}/>
                 }) : null}
-            </Helmet>
+            </Head>
             <HeaderContainer id="header">
                 <NavBar black style={{zIndex: "1000"}}/>
                 <Link to="/"><Logo /></Link>

@@ -1,6 +1,5 @@
 import "babel-polyfill";
 import React from 'react'
-import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { Root, Routes, addPrefetchExcludes, Head } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
@@ -128,12 +127,12 @@ function App() {
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="Countryside Landscape and Pools" />
           <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
-          <meta property="og:url" content="http://www.countrysidelandscape.com" />
-          <meta property="og:image:secure_url" content={og_image} />
-          <meta property="og:image" content={og_image} />
+          <meta property="og:url" content="https://review.rickheffren.com" />
+          <meta property="og:image" content="http://images.ctfassets.net/ur1u6ni4z1cg/2aqN9fzird2jbQGs9AzFXl/11be6d71eb91b4ff3cca548c4b3b8e73/1920X1280-52.jpg?w=1920&q=40&fl=progressive" />
+          <meta property="og:image:secure_url" content="https://images.ctfassets.net/ur1u6ni4z1cg/2aqN9fzird2jbQGs9AzFXl/11be6d71eb91b4ff3cca548c4b3b8e73/1920X1280-52.jpg?w=1920&q=40&fl=progressive" />
+          
           <title>Your London Pool Builder</title>
       </Head>
-      <HelmetProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <div className="content">
@@ -145,7 +144,6 @@ function App() {
           </React.Suspense>
         </div>
       </ThemeProvider>
-      </HelmetProvider>
     </Root>
   )
 }
