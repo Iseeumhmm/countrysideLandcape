@@ -128,8 +128,8 @@ function App() {
           <meta property="og:site_name" content="Countryside Landscape and Pools" />
           <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
           <meta property="og:url" content="https://review.rickheffren.com" />
-          <meta property="og:image" content="http://images.ctfassets.net/ur1u6ni4z1cg/27XoXJe8sqHgerkKcPd41w/98b1cf252e9c5aa2196918471bbb714e/pool3edited.jpg?w=1920&q=40" />
-          <meta property="og:image:secure_url" content="https://images.ctfassets.net/ur1u6ni4z1cg/27XoXJe8sqHgerkKcPd41w/98b1cf252e9c5aa2196918471bbb714e/pool3edited.jpg?w=1920&q=40" />
+          <meta property="og:image" content="http://images.ctfassets.net/ur1u6ni4z1cg/27XoXJe8sqHgerkKcPd41w/98b1cf252e9c5aa2196918471bbb714e/pool3edited.jpg" />
+          <meta property="og:image:secure_url" content="https://images.ctfassets.net/ur1u6ni4z1cg/27XoXJe8sqHgerkKcPd41w/98b1cf252e9c5aa2196918471bbb714e/pool3edited.jpg" />
           
           <title>Your London Pool Builder</title>
       </Head>
