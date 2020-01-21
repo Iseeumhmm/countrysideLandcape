@@ -130,7 +130,6 @@ function App() {
               <meta property="og:title" content="Your London Pool Buider" />
               <meta property="og:description" content="We install quality in-ground swimming pools, lap pools and water features in the London Ontario area" />
               <meta property="og:url" content="http://www.countrysidelandscape.com" />
-              <meta property="og:image" content={og_image} />
               <meta property="og:image:secure_url" content={og_image} />
           </Helmet>
           <div className="content">
