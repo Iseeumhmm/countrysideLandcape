@@ -68,6 +68,7 @@ const TextContainer = styled.div`
     margin: auto;
     position: relative;
     h1 { color: white; }
+    color: white;
     text-align: center;
     p, h2 { 
         text-align: left;
@@ -81,15 +82,26 @@ const TextContainer = styled.div`
          width: 5rem;
          animation: ${swipeGesture} 2s ease-in-out infinite;
     }
+    li {
+        font-family: 'Roboto',sans-serif;
+        text-align: left;
+    }
     font-size: 1.25rem;
-    padding-top: 68vw;
+    &:first-of-type { padding-top: 68vw; }
+    @media( min-width: 875px ) {
+        h1 { text-align: left }
+        width: 60rem;
+    }
     @media( min-width: 950px ) {
-        padding-top: 48vw;
+        &:first-of-type {
+            padding-top: 48vw;
+        }
         width: 68%;
-        margin: auto;
     }
     @media( min-width: 1575px ) {
-        padding-top: 47vw;
+        &:first-of-type {
+            padding-top: 47vw;
+        }
         width: 69%;
     }
 `
@@ -155,6 +167,32 @@ export default function Pools() {
                             { divWidth ? <ViewStack width={divWidth} images={contentfulImages}/> : ""}
                         </ViewStackContainer>
                         <img src={swipe} alt="swipe gesture"></img>
+                    </TextContainer>
+                    <TextContainer>
+                        <p><b>We bring your vision to life with our expertise.</b>  Countryside Landscape is a one-stop shop for custom landscapes. Our objective is to create unique spaces that are tailored to your site specific challenges. Whether your project scope is a small pocket garden in a downtown location or a sprawling country estate, we are committed to excellence in every stage of our project.</p>
+
+                        <h1>Pools &amp; Landscaping</h1>
+                        <p>We install quality fiberglass in ground swimming pools, fiberglass plunge pools, fiberglass lap pools and water features throughout southern Ontario.
+                        We are a trusted landscape company with the experience, knowledge and staff to create your landscape dream safely, efficiently and affordably.</p>
+
+                        <h1>Our Services</h1>
+                        <p>We are a mid-sized landscape company located in Aylmer, Ontario which is central to and services the towns, cities and surrounding country communities of Tillsonburg, St. Thomas, London and Ingersoll.</p>
+
+                        <h2>We offer a variety of quality services for your home and commercial properties.</h2>
+
+                        <p><b>Among our services are:</b></p>
+                        <ul>
+                        <li>Skid steer and mini excavating services, such as:  excavations, prep work, demolitions and clean-ups, excavate hydro ,water trenches, and excavate pools, and excavate and install driveway and parking lots.</li>
+
+                        <li>Stamped concrete and regular concrete, interlocking stone, driveways, walkways, patios, pool decks and outdoor living spaces.</li>
+
+                        <li>Manufactured and natural stone, retaining walls and steps. </li>
+
+                        <li>Commercial and residential snow plowing and salting in Aylmer and surrounding communities.</li>
+                        </ul>
+                        <h2 style={{textAlign: 'center'}}>We conform to WSIB standards and are Commercial Liability insured.</h2>
+
+
                     </TextContainer>
                 </ContentContainer>
             </BackgroundContainer>

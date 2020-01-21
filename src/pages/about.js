@@ -21,6 +21,12 @@ const PageContainer = styled.div`
   & > div:nth-child(2) > h1 {
     padding: calc(64vw * 1.25) 0 0;
   }
+   @media(min-width: 735px) {
+     & > div:nth-child(2) > h1 {
+      text-shadow: 2px 2px 1px  rgba(0,0,0, 0.5);
+      padding: 18rem 0 4rem;
+  }
+  }
   @media(min-width: 992px) {
     background-size: cover;
   }
@@ -31,6 +37,10 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media(min-width: 735px){
+    justify-content: flex-start;
+    margin-left: 2rem;
+  }
 `
 const Logo = styled.div`
   width: 23rem;
@@ -62,6 +72,15 @@ const TextContainer = styled.div`
   }
   @media(min-width: 775px){
     width: 65%;
+
+  }
+  @media(min-width: 875px){
+    
+    width: 60rem;
+    h1 { 
+      text-align: left;
+    }
+    
   }
 `
 const Photo = styled.img`
@@ -81,7 +100,7 @@ export default function About() {
         <Link to="/"><Logo /></Link>
       </HeaderContainer>
       <TextContainer>
-      <h1 style={{margin: "0", fontSize: "4rem"}}>Our Story</h1>
+      <h1 style={{margin: "0", fontSize: "4rem", textAlign: "center"}}>Our Story</h1>
         <div style={{width: '100%', textAlign: 'center'}}>
           <Photo src={john}/>
           <h2>John Wall</h2>

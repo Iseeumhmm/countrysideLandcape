@@ -38,6 +38,7 @@ const TextContainer = styled.div`
     font-size: 4rem;
   }
   @media(min-width: 635px){
+    p { text-shadow: 2px 2px 1px  rgba(0,0,0, 0.5); }
     top: 60%;
   }
   @media(min-width: 1575px){

@@ -11,17 +11,7 @@ import facebook from '../images/icons/facebook.png'
 import styled, {keyframes} from 'styled-components'
 
 
-const browserHandler = {
-  chrome: () => {
-    console.log('This is Chrome')
-    return <div>Chrome is fantastic!</div>
-  },
-  googlebot: () => <div>Hi GoogleBot!</div>,
-  default: (browser) => {
-    console.log("This is: ", browser)
-    return <div>Hi {browser}!</div>
-  },
-};
+
 
 // Styles
 
@@ -46,12 +36,32 @@ text-align: center;
 bottom: 0;
 width: 100%;
 `
+const FireFoxHome = styled.div`
+  width: 100vw;
+  height: ${ props => props.vh}px;
+  overflow: hidden;
+  background-image: url(${({image}) => image });
+  background-size: cover;
+  background-position: center center;
+`
 
 function Home() {
   const { homePageSliderImages } = useRouteData()
   const [viewHeight, setViewHeight] = useState(0)
   const [browser, setBrowser] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [firefox, setFirefox] = useState(false)
+
+  const browserHandler = {
+    default: (browser) => {
+      if (browser === "firefox" ){ 
+        setFirefox(true)
+        return null
+      } else {
+        return null
+      }
+    },
+  };
 
   useEffect( () => {
 
@@ -91,7 +101,8 @@ function Home() {
     <Container vh={viewHeight} style={{position: "relative", overflowX: "hidden"}}>
        {browser}
       <NavBar style={{zIndex: "1000"}}/>
-      <KenBurns images={ homePageSliderImages } />
+      {firefox ? <FireFoxHome vh={viewHeight} image={homePageSliderImages[0]}/> : <KenBurns images={ homePageSliderImages } />}
+
       <BannerText />
       <SocialIcons>
         <a href="https://www.instagram.com/countrysidelandscapeaylmer/" target="_blank"><img src={instagram} style={{ width: "4rem", margin: "1rem" }} alt="Instagram icon"/></a>

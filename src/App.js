@@ -73,7 +73,12 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
     font-size: 62.5%;
-    
+    @media(min-width: 534px) {
+      font-size: 70%;
+    } 
+    @media(min-width: 1575px) {
+      font-size: 90%;
+    } 
   
     body {
       /* // font-family: 'Oswald', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; */
@@ -83,7 +88,7 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 300;
       line-height: 2.6rem;
       letter-spacing: .1rem;
-      font-size: 16px;
+      font-size: 1.6rem;
       margin: 0;
       padding: 0;
       color: black;
@@ -96,13 +101,11 @@ const GlobalStyle = createGlobalStyle`
         line-height: 2.6rem;
 
       }
+      @media(min-width: 775px) {
+       /* p { font-size: 4rem; } */
+      } 
     }
-    @media(min-width: 534px) {
-      font-size: 70%;
-    } 
-    @media(min-width: 1575px) {
-      font-size: 90%;
-    } 
+    
   }
   
   a {

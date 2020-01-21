@@ -82,7 +82,7 @@ export default function Viewpager(propsFrom) {
       <animated.div {...bind()} key={i} style={{ display, transform: x.interpolate(x => `translate3d(${x}px,0,0)`) }}>
             <Link key={`${i}_link`} to={`/${pages[i][0]}`}>
 
-          <h1>{pages[i][0]}</h1>
+          <h1 style={{textAlign: "center"}}>{pages[i][0]}</h1>
         </Link>
 
         <animated.div style={{ transform: sc.interpolate(s => `scale(${s})`), backgroundImage: `url(${pages[i][1]})` }} />
