@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'components/Router'
 import NavBar from '../containers/navigation/navbar'
 import { useRouteData } from 'react-static'
@@ -42,16 +42,20 @@ const HeaderContainer = styled.div`
 
 const Services = () => {
     const pageImages = useRouteData()
-
+    const [images, setImages] = useState(null)
     let imageArray = []
-    if (pageImages) { pageImages[1].forEach( each => {
-        let image = {
-            title: each.shortTitle,
-            description: each.shortDescriptionOfImage,
-            image: `${each.full1920x1280.fields.file.url}?w=1920&q=40&fl=progressive`
-        }
-        imageArray.push(image)
-    })}
+    useEffect(() => {
+        if (pageImages[1]) { pageImages[1].forEach( each => {
+            let image = {
+                title: each.shortTitle,
+                description: each.shortDescriptionOfImage,
+                image: `${each.full1920x1280.fields.file.url}?w=1920&q=40&fl=progressive`
+            }
+            imageArray.push(image)
+        })}
+        setImages(imageArray)
+    }, [])
+    
 
     return (
         <PageContainer>
@@ -60,7 +64,7 @@ const Services = () => {
                 <Link to="/"><Logo /></Link>
             </HeaderContainer>
             <h1 id="Heading">{pageImages[0]}</h1>
-            {imageArray ? imageArray.map((each, i) =>{
+            {images ? images.map((each, i) =>{
                 return (
                     <Fade key={i} left={(i % 2 === 0)} right={!(i % 2 === 0)}>
                         <img src={each.image} alt={each.shortTitle}></img>
